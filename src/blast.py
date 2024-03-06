@@ -12,7 +12,12 @@ from pprint import pprint
 import pandas as pd
 import streamlit as st
 
+import xml.etree.ElementTree as ET
+import re
 
+
+#1) using diamond w/ database (only transcription factors) could be missing some info 2) blast of all known proteins remote-blast (5 mins)
+# regulators with unknown ligands and test out in lab
 
     # Input protein accession ID, output sequence in fasta format
 def accID2sequence(accID: str):
@@ -41,7 +46,7 @@ def uniprotID2sequence(ID: str):
         return None
 
 
-@st.cache_data(show_spinner=False)
+#@st.cache_data(show_spinner=False)
 def blast(acc, input_method, params, max_seqs):
 
     if input_method == "RefSeq":
@@ -50,7 +55,7 @@ def blast(acc, input_method, params, max_seqs):
         seq = uniprotID2sequence(acc)
     else:
         seq = acc
-
+        
     flags = 'sseqid pident qcovhsp'
         # Must set this memory limit for running on a 1GB EC2 instance
     memory_limit = 0.15
@@ -59,13 +64,15 @@ def blast(acc, input_method, params, max_seqs):
     tmp = NamedTemporaryFile()
     log = NamedTemporaryFile()
     SeqIO.write(SeqRecord(Seq(seq), id="temp"), query.name, "fasta")
-
+    with open(query.name, "r") as file_handle:  #opens BLAST file
+        show = file_handle.readlines()
+    
     # Select database to blast
-    diamond_db = "../databases/bHTH_RefSeq.dmnd"
+    diamond_db = "/Users/jiojeong/Desktop/ligify_reverse/bHTH_RefSeq.dmnd"
     
     subprocess.call(f'diamond blastp -d {diamond_db} -q {query.name} -o {tmp.name} --outfmt 6 {flags} -b {memory_limit}'
                     f' --id {params["ident_cutoff"]} --query-cover {params["cov_cutoff"]} --max-target-seqs {max_seqs} >> {log.name} 2>&1' , shell=True)
-
+    
     with open(tmp.name, "r") as file_handle:  #opens BLAST file
         align = file_handle.readlines()
 
@@ -89,21 +96,11 @@ def blast(acc, input_method, params, max_seqs):
 
     return inDf
 
-
-
-
-
-
-
-
-
-
-
+    
 if __name__ == "__main__":
-
-    #uniprotID2sequence("A0A170ND59")
-    acc = "ACS29497.1"
-    #print(accID2sequence(acc))
+        
+    
+    
 
     # if acc != None:
     #     df = blast(acc)
@@ -112,3 +109,4 @@ if __name__ == "__main__":
     #     print("bad seq")
 
     # print(seq)
+    print("running...")
