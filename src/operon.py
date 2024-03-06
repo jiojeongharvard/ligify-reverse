@@ -182,6 +182,8 @@ def addChemicalsToOperondf(homolog_operon_df: pd.DataFrame):
 # the value is a list of all the times the chemical appears in the operons   
 def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
     all_chemicals = {}
+    chemicals_in_input_reg_operon = []
+    
     for gene in input_reg_operon["operon"]:
         if "chemicals" in gene.keys():
             for chemical in gene["chemicals"]:
@@ -194,6 +196,7 @@ def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
                 info["coverage"] = 100
                 
                 all_chemicals.setdefault(id, []).append(info)
+                chemicals_in_input_reg_operon.append(id)
     
     for index, row in homolog_operon_df.iterrows():
         op = row['Operon']
@@ -212,16 +215,16 @@ def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
                         
                         all_chemicals.setdefault(id, []).append(info)        
             
-    return all_chemicals
+    return all_chemicals, set(chemicals_in_input_reg_operon)
 
 # compute the score of the chemical based on identity and coverage of homolog and distance between GOI and regulator
 # weights can be adjusted
-def rankChemicals(all_chemicals, cutoff):
+def rankChemicals(all_chemicals, chemicals_in_input_reg_operon, cutoff, num_homologs):
     chemical_scores = []
-    distance_weight = 10
-    identity_weight = 10
+    distance_weight = 100
+    identity_weight = 15
     coverage_weight = 10
-    num_occurrence_weight = 20
+    num_occurrence_weight = 500
     
     for chemical in all_chemicals:
         distance_counter = 0
@@ -244,11 +247,25 @@ def rankChemicals(all_chemicals, cutoff):
         identity_avg = identity_sum / num_occurrence    
         coverage_avg = coverage_sum / num_occurrence
         
+        min_occurrence = 0
+        max_occurrence = num_homologs + 1
+        normalized_occurrence = (num_occurrence - min_occurrence) / (max_occurrence - min_occurrence)
+        print("chemical id: " + str(chemical))
+        print("identity avg: " + str(identity_avg) + "; coverage avg: " + str(coverage_avg) + "; normalized occ: " + str(normalized_occurrence))
+        
+        not_present_in_query_operon_penalty = 0
+        if chemical not in chemicals_in_input_reg_operon:
+            not_present_in_query_operon_penalty = 500
+        
+        print("not in query operon penalty: " + str(not_present_in_query_operon_penalty))   
+        
+        
         if distance_counter > 0:
             distance_avg = distance_sum / distance_counter
-            total_score = (1000 -  (distance_avg * distance_weight) - (100 - identity_avg) * identity_weight - (100 - coverage_avg) * coverage_weight + num_occurrence_weight * num_occurrence) / 10
+            print("distance avg: " + str(distance_avg))
+            total_score = (1000 - not_present_in_query_operon_penalty - (distance_avg * distance_weight) - (100 - identity_avg) * identity_weight - (100 - coverage_avg) * coverage_weight - (1 - normalized_occurrence) * num_occurrence_weight) / 10
         else:
-            total_score = (1000 - (100 - identity_avg) * identity_weight - (100 - coverage_avg) * coverage_weight + num_occurrence_weight * num_occurrence) / 10
+            total_score =  (1000 - not_present_in_query_operon_penalty - (100 - identity_avg) * identity_weight - (100 - coverage_avg) * coverage_weight - (1 - normalized_occurrence) * num_occurrence_weight) / 10
         
         
         if (total_score > cutoff):
@@ -303,7 +320,7 @@ def log_function(query):
     with open(log_file_name, 'w') as log_file:
         # Redirect standard output to the log file
         sys.stdout = log_file
-        params = {"ident_cutoff": 30, "cov_cutoff": 50}
+        params = {"ident_cutoff": 60, "cov_cutoff": 90}
         df = blast(query, "RefSeq", params, 20)
         filtered_df = filterHomologs(df, 60, 90)
         # too lenient 90 percent coverage 60-70 identity
@@ -345,12 +362,12 @@ def log_function(query):
         print("________________________________")                
         
         print("These are all the chemicals in the operons:")
-        chem = getAllChemicalsInOperons(inputs_operon, homolog_operons)
+        chem, chemicals_in_input_reg_operon = getAllChemicalsInOperons(inputs_operon, homolog_operons)
         print(chem)
         print("________________________________")        
         
         print("These are all the chemicals ranked:")
-        print(rankChemicals(chem, 50))
+        print(rankChemicals(chem, chemicals_in_input_reg_operon, 0, len(homolog_operons)))
         
         end_time = datetime.datetime.now()
         runtime = end_time - start_time
@@ -365,7 +382,13 @@ def log_function(query):
     sys.stdout = sys.__stdout__
       
 if __name__ == "__main__":
-    queries = ["NP_414606.1", "WP_004925500.1", "WP_011336736.1", "NP_414847.3", "NP_418026.1", "NP_415533.1", "WP_011014162.1", "NP_862536.1", "NP_418342.2", "WP_012368846.1", "WP_010974118.1", "NP_418209.1", "NP_414879.3", "WP_000174305.1", "NP_391277.1", "AAC37157.1", "BAE47075.1", "NP_746731.1", "WP_002965779.1", "WP_009968057.1", "WP_011594778.1", "NP_745052.1", "WP_003227022.1", "WP_010813722.1", "WP_001278727.1", "NP_415039.1", "WP_010811303.1", "WP_003114242.1", "WP_013056567.1", "NP_414655.1", "WP_011731512.1"]
-    queries = ["WP_010811303.1", "WP_003114242.1", "WP_013056567.1", "NP_414655.1", "WP_011731512.1"]
+    #all queries
+    all_queries = ["NP_414606.1", "WP_004925500.1", "WP_011336736.1", "NP_414847.3", "NP_418026.1", "NP_415533.1", "WP_011014162.1", "NP_862536.1", "NP_418342.2", "WP_012368846.1", "WP_010974118.1", "NP_418209.1", "NP_414879.3", "WP_000174305.1", "NP_391277.1", "AAC37157.1", "BAE47075.1", "NP_746731.1", "WP_002965779.1", "WP_009968057.1", "WP_011594778.1", "NP_745052.1", "WP_003227022.1", "WP_010813722.1", "WP_001278727.1", "NP_415039.1", "WP_010811303.1", "WP_003114242.1", "WP_013056567.1", "NP_414655.1", "WP_011731512.1"]
+    
+    #queries with no homologs
+    no_homolog = ["NP_414606.1", "NP_414655.1", "NP_414879.3", "NP_415039.1", "NP_415533.1", "NP_418026.1", "NP_418209.1", "WP_000174305.1", "WP_001278727.1", "WP_002965779.1", "WP_003114242.1", "WP_013056567.1"]
+    
+    queries = [elem for elem in all_queries if elem not in no_homolog]
+    
     for query in queries:
         log_function(query)

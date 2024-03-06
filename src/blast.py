@@ -68,7 +68,7 @@ def blast(acc, input_method, params, max_seqs):
         show = file_handle.readlines()
     
     # Select database to blast
-    diamond_db = "/Users/jiojeong/Desktop/ligify_reverse/bHTH_RefSeq.dmnd"
+    diamond_db = "/Users/jiojeong/Desktop/bHTH_RefSeq.dmnd"
     
     subprocess.call(f'diamond blastp -d {diamond_db} -q {query.name} -o {tmp.name} --outfmt 6 {flags} -b {memory_limit}'
                     f' --id {params["ident_cutoff"]} --query-cover {params["cov_cutoff"]} --max-target-seqs {max_seqs} >> {log.name} 2>&1' , shell=True)
