@@ -5,13 +5,12 @@ This is how the query's operon looks like:
 ________________________________
 This is how the dataframe of homologs looks like:
     Uniprot Id  Identity  Coverage         NCBI Id     EMBL Id                                             Operon
-6       S1EWF8      99.5       100  WP_016241917.1  EOV82924.1  {'operon': [{'alias': 'LF721_RS21065', 'descri...
-7   A0A2T3UW56      99.5       100  WP_033803456.1  NYP84292.1  {'operon': [{'alias': 'MY80_RS19875', 'descrip...
-8   A0A0D7GZD6      98.5       100  WP_001351501.1  MWL47951.1  {'operon': [{'alias': 'ECSE_RS01730', 'descrip...
+6       S1EWF8      99.5       100  WP_016241917.1  EOV82924.1  {'operon': [{'alias': 'A1UI_00400', 'descripti...
+7   A0A2T3UW56      99.5       100  WP_033803456.1  NYP84292.1  {'operon': [{'alias': 'G4A47_03420', 'descript...
+8   A0A0D7GZD6      98.5       100  WP_001351501.1  MWL47951.1  {'operon': [{'alias': 'GQM04_20985', 'descript...
+9       B6I093      98.5       100  WP_001351501.1  BAG75858.1  {'operon': [{'alias': 'ECSE_0328', 'descriptio...
+10      B7M2V7      98.5       100  WP_001351501.1  CAQ97184.1  {'operon': [{'alias': 'ECIAI1_0306', 'descript...
 11  A0A066QEB8      97.9       100  WP_001295527.1  ART22878.1  {'operon': [{'alias': 'SFV_RS01785', 'descript...
-________________________________
-This contains the description of all enzymes (excluding regulators) in the operons
-['uncharacterized protein YkgH', 'choline dehydrogenase', 'betaine aldehyde dehydrogenase', 'choline:H(+) symporter', 'protein YahV', 'hypothetical protein', 'choline BCCT transporter BetT', 'betaine-aldehyde dehydrogenase', 'choline dehydrogenase', 'protein YkgH', 'protein YahV', 'choline BCCT transporter BetT', 'betaine-aldehyde dehydrogenase', 'choline dehydrogenase', 'protein YkgH', 'choline dehydrogenase', 'betaine-aldehyde dehydrogenase', 'choline BCCT transporter BetT', 'hypothetical protein', 'protein YkgH', 'choline dehydrogenase', 'betaine-aldehyde dehydrogenase', 'choline BCCT transporter BetT', 'IS1 family transposase']
 ________________________________
 This is how the chemicals are added to the genes in the operon:
 [{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
@@ -19,30 +18,36 @@ This is how the chemicals are added to the genes in the operon:
 [{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}]
 ________________________________
 This is how the chemicals are added to the genes in the homolog operons:
-[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}]
-[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
-[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}]
-[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
 [{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
 [{'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}, {'name': 'glycine betaine', 'ChEBI ID': 'CHEBI:17750'}]
-[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}]
+[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
+[{'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}, {'name': 'glycine betaine', 'ChEBI ID': 'CHEBI:17750'}]
+[{'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}, {'name': 'glycine betaine', 'ChEBI ID': 'CHEBI:17750'}]
+[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
+[{'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}, {'name': 'glycine betaine', 'ChEBI ID': 'CHEBI:17750'}]
+[{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
+[{'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}, {'name': 'glycine betaine', 'ChEBI ID': 'CHEBI:17750'}]
 [{'name': 'choline', 'ChEBI ID': 'CHEBI:15354'}, {'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}]
 [{'name': 'betaine aldehyde', 'ChEBI ID': 'CHEBI:15710'}, {'name': 'glycine betaine', 'ChEBI ID': 'CHEBI:17750'}]
 ________________________________
 These are all the chemicals in the operons:
-{'CHEBI:15354': [{'distance_from_reg': 2, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 99.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 99.5, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 99.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 99.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 97.9, 'coverage': 100}], 'CHEBI:15710': [{'distance_from_reg': 2, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 99.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 99.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 97.9, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 97.9, 'coverage': 100}], 'CHEBI:17750': [{'distance_from_reg': 1, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 97.9, 'coverage': 100}]}
+{'CHEBI:15354': [{'distance_from_reg': 2, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 100, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 97.9, 'coverage': 100}], 'CHEBI:15710': [{'distance_from_reg': 2, 'identity': 100, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 100, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 2, 'identity': 97.9, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 97.9, 'coverage': 100}], 'CHEBI:17750': [{'distance_from_reg': 1, 'identity': 100, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 99.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'identity': 98.5, 'coverage': 100}, {'distance_from_reg': 1, 'identity': 97.9, 'coverage': 100}]}
 ________________________________
-The total number of enzymes that have chemicals found in the query operon + all homolog operons is: 12
+The total number of enzymes that have chemicals found in the query operon + all homolog operons is:14
 ________________________________
 These are all the chemicals ranked:
-['choline', 94.10444444444444, 'CHEBI:15354', {'query operon penalty': 0, 'distance average': 1.5555555555555556, 'identity average': 99.21111111111111, 'coverage average': 100.0, 'frequency': 0.75}]
-['betaine aldehyde', 92.39333333333333, 'CHEBI:15710', {'query operon penalty': 0, 'distance average': 1.625, 'identity average': 98.975, 'coverage average': 100.0, 'frequency': 0.6666666666666666}]
-['glycine betaine', 85.42999999999999, 'CHEBI:17750', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.8, 'coverage average': 100.0, 'frequency': 0.25}]
+chemical id: CHEBI:15354
+identity avg: 99.12857142857142; coverage avg: 100.0; normalized occ: 0.5
+not in query operon penalty: 0
+distance avg: 1.6666666666666667
+chemical id: CHEBI:15710
+identity avg: 98.94615384615386; coverage avg: 100.0; normalized occ: 0.9285714285714286
+not in query operon penalty: 0
+distance avg: 1.5
+chemical id: CHEBI:17750
+identity avg: 98.91428571428571; coverage avg: 100.0; normalized occ: 0.5
+not in query operon penalty: 0
+distance avg: 1.0
+[['betaine aldehyde', 79.84780219780222, 'CHEBI:15710'], ['glycine betaine', 63.37142857142857, 'CHEBI:17750'], ['choline', 57.02619047619046, 'CHEBI:15354']]
 ________________________________
-This is the correct chemical for the query: 
-choline
-________________________________
-These are weights used for ranking:
-{'distance': 5, 'identity': 11, 'coverage': 20, 'frequency': 170, 'max input operon penalty': 250}
-________________________________
-The Runtime of query: 0:03:06.431031
+The Runtime of query: 0:03:11.658647

@@ -443,7 +443,13 @@ def acc2operon(accession):
 
 if __name__ == "__main__":
     
-    pprint(acc2operon("WP_187140699.1"))
+    pprint(acc2operon("WP_016167756.1"))
+    print("_________________")
+    pprint(acc2operon("NZ_SJNT01000013.1"))
+    print("_________________")
+    pprint(acc2operon("SJNT01000013"))
+    print("_________________")
+    pprint(acc2operon("TCB33756.1"))
 
 
 
