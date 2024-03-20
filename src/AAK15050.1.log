@@ -1,0 +1,39 @@
+Query: AAK15050.1
+EMBL element not found.
+EMBL element not found.
+EMBL element not found.
+EMBL element not found.
+EMBL element not found.
+This is how the query's operon looks like:
+{'operon': [{'description': 'regulatory protein TtgR', 'accession': 'AAK15050.1', 'direction': '+', 'start': 256, 'stop': 888}, {'description': 'regulatory protein TtgR', 'accession': 'AAK15050.1', 'direction': '+', 'start': 256, 'stop': 888}], 'enzyme_index': 1, 'enzyme_direction': '+', 'operon_seq': {'gene0fwd': '', 'overlap0': 'ATGGTCCGTCGAACCAAAGAAGAAGCCCAGGAAACCCGTGCCCAGATCATCGAGGCGGCGGAAAGGGCCTTCTACAAGCGCGGGGTTGCGCGAACCACCCTGGCCGACATCGCCGAACTGGCGGGTGTGACGCGGGGGGCGATCTACTGGCACTTCAACAACAAGGCCGAGCTGGTGCAGGCGTTGCTCGACAGCCTGCACGAGACCCATGACCATTTGGCGCGGGCGAGCGAAAGCGAGGATGAAGTCGACCCGCTTGGCTGCATGCGCAAGCTGCTGTTGCAAGTGTTCAACGAGCTGGTGCTCGATGCCCGAACCCGTCGTATCAATGAAATCCTGCATCACAAGTGCGAGTTCACCGATGACATGTGTGAAATTCGCCAGCAGCGCCAGAGTGCGGTGCTGGATTGCCACAAGGGCATCACCCTGGCGCTGGCCAATGCCGTACGCCGGGGCCAGTTGCCTGGCGAGCTGGATGCCGAGCGCGCGGCGGTGGCCATGTTTGCCTATGTCGATGGCCTGATCAGGCGCTGGCTATTGCTGCCTGACAGTGTCGATCTGTTGGGTGATGTCGAAAAATGGGTCGACACCGGGCTGGATATGCTGCGCTTGAGCCCGGCTCTGCGCAAATGA', 'gene1fwd': ''}, 'promoter': None, 'reassembly_match': True, 'genome': 'AF238479.1'}
+________________________________
+This is how the dataframe of homologs looks like:
+    Uniprot Id  Identity  Coverage         NCBI Id       EMBL Id                                             Operon
+0   A0A173HAY4      99.5       100  WP_004575141.1    ANI32970.1  {'operon': [{'alias': 'C206_RS04375', 'descrip...
+2       Q88N29      98.6       100     NP_743546.1    AAN67010.1  {'operon': [{'alias': 'PP_RS07145', 'descripti...
+6   A0A1X1A6C7      98.1       100  WP_021785779.1    GLO36188.1  {'operon': [{'alias': 'O999_RS52400', 'descrip...
+10  A0A7Y3XQL7      97.6       100  WP_012273976.1    NOG86330.1  {'operon': [{'alias': 'PPUTGB1_RS22390', 'desc...
+13  A0A179S9Q4      98.1       100  WP_012053630.1  MBI6885905.1  {'operon': [{'alias': 'YSA_RS07835', 'descript...
+14  A0A1W2CFA3      97.6       100  WP_019097258.1    SMC83839.1  {'operon': [{'alias': 'PPTS312_RS22810', 'desc...
+________________________________
+This contains the description of all enzymes (excluding regulators) in the operons
+['OprD family porin', 'adeC/adeK/oprM family multidrug efflux complex outer membrane factor', 'multidrug efflux RND transporter permease subunit TtgB', 'toluene efflux RND transporter periplasmic adaptor subunit TtgA', 'MDR family MFS transporter', 'OprD family porin', 'adeC/adeK/oprM family multidrug efflux complex outer membrane factor', 'multidrug efflux RND transporter permease subunit TtgB', 'toluene efflux RND transporter periplasmic adaptor subunit TtgA', 'MDR family MFS transporter', 'MDR family MFS transporter', 'toluene efflux RND transporter periplasmic adaptor subunit TtgA', 'multidrug efflux RND transporter permease subunit TtgB', 'AdeC/AdeK/OprM family multidrug efflux complex outer membrane factor', 'OprD family porin', 'MDR family MFS transporter', 'toluene efflux RND transporter periplasmic adaptor subunit TtgA', 'multidrug efflux RND transporter permease subunit TtgB', 'adeC/adeK/oprM family multidrug efflux complex outer membrane factor', 'OprD family porin', 'MDR family MFS transporter', 'toluene efflux RND transporter periplasmic adaptor subunit TtgA', 'multidrug efflux RND transporter permease subunit TtgB', 'adeC/adeK/oprM family multidrug efflux complex outer membrane factor', 'OprD family porin', 'MDR family MFS transporter', 'toluene efflux RND transporter periplasmic adaptor subunit TtgA', 'multidrug efflux RND transporter permease subunit TtgB', 'AdeC/AdeK/OprM family multidrug efflux complex outer membrane factor', 'OprD family porin']
+________________________________
+This is how the chemicals are added to the genes in the operon:
+________________________________
+This is how the chemicals are added to the genes in the homolog operons:
+________________________________
+These are all the chemicals in the operons:
+{}
+________________________________
+The total number of enzymes that have chemicals found in the query operon + all homolog operons is: 0
+________________________________
+These are all the chemicals ranked:
+________________________________
+This is the correct chemical for the query: 
+naringenin
+________________________________
+These are weights used for ranking:
+{'distance': 5, 'identity': 11, 'coverage': 20, 'frequency': 170, 'max input operon penalty': 250}
+________________________________
+The Runtime of query: 0:02:52.318513

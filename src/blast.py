@@ -8,6 +8,9 @@ from Bio.Seq import Seq
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
+from Bio.Blast import NCBIWWW
+from Bio.Blast import NCBIXML
+
 from pprint import pprint
 import pandas as pd
 import streamlit as st
@@ -96,11 +99,86 @@ def blast(acc, input_method, params, max_seqs):
 
     return inDf
 
+
+
+def blast_remote(refseq_id, database='nr', num_alignments=10):
+    # Perform BLAST search
+    result_handle = NCBIWWW.qblast(program='blastp', database=database, sequence=refseq_id, entrez_query='txid2[Organism]', alignments=num_alignments)
+
+    # Parse the result
+    blast_records = NCBIXML.parse(result_handle)
     
+    # Extract relevant information and store in a DataFrame
+    results = []
+    for blast_record in blast_records:
+        for alignment in blast_record.alignments:
+            print("Alignment details:")
+            print("  Hit ID:", alignment.hit_id)
+            print("  Hit Definition:", alignment.hit_def)
+            print("  Hit Length:", alignment.length)
+            print("  Number of HSPs:", len(alignment.hsps))
+            for hsp in alignment.hsps:
+                print("  HSP Score:", hsp.score)
+                print("  HSP E-value:", hsp.expect)
+                print("  HSP Query Start:", hsp.query_start)
+                print("  HSP Query End:", hsp.query_end)
+                print("  HSP Hit Start:", hsp.sbjct_start)
+                print("  HSP Hit End:", hsp.sbjct_end)
+                print("  HSP Alignment Length:", hsp.align_length)
+                print("  HSP Identity:", hsp.identities)
+                print("  HSP Query Sequence:", hsp.query)
+                print("  HSP Hit Sequence:", hsp.sbjct)
+                print()
+                
+                # Calculate identity and coverage percentages
+                
+                alignment_length = hsp.align_length
+                identity = hsp.identities
+                coverage = (identity / alignment_length) * 100
+
+                # Extract UniProt ID from subject ID if it follows the UniProt format
+                subject_id = None
+                if '|' in alignment.hit_id:
+                    if alignment.hit_id.split('|')[0] == "ref": 
+                        subject_id = alignment.hit_id.split('|')[1]
+
+                results.append({
+                    'NCBI Id': subject_id,
+                    'Identity': (identity / alignment_length) * 100,
+                    'Coverage': coverage
+                })
+
+    df = pd.DataFrame(results)
+    df_filtered = df[df['NCBI Id'].notnull()]
+    return df_filtered
+
+
+def get_ncbi_id(uniprot_id):
+    base_url = "https://www.uniprot.org/uniprot/"
+    url = base_url + uniprot_id + ".xml"
+    response = requests.get(url)
+    if response.status_code == 200:
+        # Parse XML response to get RefSeq ID
+        xml_data = response.text
+        root = ET.fromstring(xml_data)
+        refseq_id = None
+        for dbReference in root.findall(".//{http://uniprot.org/uniprot}dbReference"):
+            if dbReference.attrib['type'] == 'RefSeq':
+                refseq_id = dbReference.attrib['id']
+                break
+        return refseq_id
+    else:
+        print("Error: Unable to fetch data from UniProt")
+        return None
+ 
 if __name__ == "__main__":
         
-    
-    
+    # # Example usage
+    # refseq_id = "WP_004925500.1"
+    # blast_df = blast_remote(refseq_id)
+    # print(blast_df)
+        
+    print(get_ncbi_id("WP_004925500.1"))
 
     # if acc != None:
     #     df = blast(acc)
@@ -109,4 +187,3 @@ if __name__ == "__main__":
     #     print("bad seq")
 
     # print(seq)
-    print("running...")

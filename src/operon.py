@@ -21,9 +21,13 @@ def filterHomologs(homologs: pd.DataFrame, ident_cutoff:int , cov_cutoff: int):
 # use the acc2operon to get the operons for the input biosensor and its homologs
 def getOperon(acc: str, homolog_df: pd.DataFrame):
     input_reg_operon = acc2operon(acc)
-    homolog_df['NCBI Id'] = homolog_df['Uniprot Id'].apply(lambda x: get_ncbi_id(x))
-    homolog_df['EMBL Id'] = homolog_df['Uniprot Id'].apply(lambda x: convert_uniprot_to_embl(x))
-    homolog_df['Operon'] = homolog_df['NCBI Id'].apply(lambda x: acc2operon(x))
+    if 'Uniprot Id' in df.columns:
+        homolog_df['NCBI Id'] = homolog_df['Uniprot Id'].apply(lambda x: get_ncbi_id(x))
+        homolog_df['EMBL Id'] = homolog_df['Uniprot Id'].apply(lambda x: convert_uniprot_to_embl(x))
+    
+    if 'NCBI Id' in df.columns:
+        homolog_df['Operon'] = homolog_df['NCBI Id'].apply(lambda x: acc2operon(x))
+        
     #homolog_df['Operon'] = homolog_df['EMBL Id'].apply(lambda x: acc2operon(x))
     
     homolog_df = homolog_df[homolog_df['Operon'] != 'EMPTY']
@@ -482,7 +486,7 @@ def log_function(query, excel_dict):
         weights["coverage"] = 20
         weights["frequency"] = 170
         weights["max input operon penalty"] = 250
-        output_chemicals, used_weights = rankChemicals(chem, chemicals_in_input_reg_operon, 0, num_genes, weights)
+        output_chemicals = rankChemicals(chem, chemicals_in_input_reg_operon, 0, num_genes, weights)
         for i in output_chemicals:
             print(i)
         
@@ -532,6 +536,8 @@ if __name__ == "__main__":
     'WP_051824537.1', 'WP_011030045.1', 'WP_015475612.1', 'WP_079651080.1', 'BAK67179.1', 'AAA25771.1',
     'AAW51730.1', 'AUW46298.1', 'WP_012273540.1', 'WP_011004209.1', 'AAY86547.1', 'CAY46636.1'
     ]
+    
+    queries = failure_mode_queries
     
     # Read the Excel file
     excel_file_path = '/Users/jiojeong/Desktop/Benchmarking_Dataset.xlsx'
