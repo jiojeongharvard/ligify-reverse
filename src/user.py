@@ -25,18 +25,26 @@ if __name__ == "__main__":
     params = {"ident_cutoff": ident_cutoff, "cov_cutoff": cov_cutoff}
     
     search_homolog = True
-    blast_remove = False
+    blast_remote = False
     
     
     inputs_operon = None
     homolog_operons = None
-    if (search_homolog):
+    if (search_homolog and not blast_remote):
         df = blast(query, "RefSeq", params, max_num_homologs)
+        filtered_df = filterHomologs(df, 70, 90)  
+        inputs_operon, homolog_operons = getOperon(query, filtered_df)
+    elif (search_homolog and blast_remote):
+        df = blast_remote(query, max_num_homologs, database='nr')
         filtered_df = filterHomologs(df, 70, 90)  
         inputs_operon, homolog_operons = getOperon(query, filtered_df)
     else:
         inputs_operon = acc2operon(query)
-    
+        
+    if (inputs_operon == "EMPTY"):
+        print("query returned an empty operon")
+            
+            
     filterRegFromOperon(query, inputs_operon)
     if (search_homolog):
         filterRegFromOperondf(homolog_operons)

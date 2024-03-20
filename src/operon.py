@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import streamlit as st
 from accID2operon import acc2operon
-from blast import blast
+from blast import blast, blast_remote
 import sys
 
 import xml.etree.ElementTree as ET
@@ -14,6 +14,8 @@ import time
 
 # filter out the dataframe of homologs based on given cutoffs
 def filterHomologs(homologs: pd.DataFrame, ident_cutoff:int , cov_cutoff: int):
+    if (homologs is None):
+        return None
     filtered_df = homologs[(homologs['Identity'] > ident_cutoff) & (homologs['Coverage'] > cov_cutoff)]
     filtered_df = filtered_df[~((filtered_df['Identity'] == 100) & (filtered_df['Coverage'] == 100))]
     return filtered_df
@@ -21,11 +23,15 @@ def filterHomologs(homologs: pd.DataFrame, ident_cutoff:int , cov_cutoff: int):
 # use the acc2operon to get the operons for the input biosensor and its homologs
 def getOperon(acc: str, homolog_df: pd.DataFrame):
     input_reg_operon = acc2operon(acc)
-    if 'Uniprot Id' in df.columns:
+    
+    if (homolog_df is None):
+        return input_reg_operon, None
+    
+    if 'Uniprot Id' in homolog_df.columns:
         homolog_df['NCBI Id'] = homolog_df['Uniprot Id'].apply(lambda x: get_ncbi_id(x))
         homolog_df['EMBL Id'] = homolog_df['Uniprot Id'].apply(lambda x: convert_uniprot_to_embl(x))
     
-    if 'NCBI Id' in df.columns:
+    if 'NCBI Id' in homolog_df.columns:
         homolog_df['Operon'] = homolog_df['NCBI Id'].apply(lambda x: acc2operon(x))
         
     #homolog_df['Operon'] = homolog_df['EMBL Id'].apply(lambda x: acc2operon(x))
@@ -46,6 +52,9 @@ def getOperon(acc: str, homolog_df: pd.DataFrame):
 
 # take out / delete all the regulators from a given operon
 def filterRegFromOperon(acc: str, input_reg_operon):
+    if (input_reg_operon == "EMPTY"):
+        return "EMPTY"
+    
     index = 0
     index_of_reg = None
     for gene in input_reg_operon["operon"]:
@@ -73,6 +82,9 @@ def filterRegFromOperon(acc: str, input_reg_operon):
 
 # take out / delete all the regulators from a given dataframe of operons
 def filterRegFromOperondf(homolog_operon_df: pd.DataFrame):
+    if (homolog_operon_df is None):
+        return None
+    
     for index, row in homolog_operon_df.iterrows():
         if row['Operon'] == 'EMPTY':
             continue
@@ -163,6 +175,9 @@ def chebi_id_to_name(chebi_id):
 # add the list of chemicals to a new field named "chemicals" for each protein
 # thus each "operon" will have a list of "genes/proteins" that each have a list of "chemicals"       
 def addChemicalsToOperon(input_reg_operon):
+    if (input_reg_operon == 'EMPTY'):
+        return "EMPTY"
+    
     not_ligands = ["hydron", "water", "carbon dioxide", 'NADP(3-)', 'NADPH(4-)', 'NADH(2-)', 'NAD(1-)', 'hydrogen peroxide', 'dioxygen', "coenzyme A(4-)",
                     "acetyl-CoA(4-)","acyl-CoA(4-)","hydrogenphosphate","ATP(4-)","ADP(3-)","diphosphate(3-)","DNA 5'-phosphate polyanion","hydrogen acceptor",
                     "hydrogen donor","FMNH(2)(2-)","FMN(3-)","potassium(1+)","iron(2+)","iron(3+)","copper(1+)","copper(2+)","ammonium","aldehyde","carboxylic acid anion",
@@ -188,6 +203,8 @@ def addChemicalsToOperon(input_reg_operon):
     
 # adding chemicals to a DATAFRAME of multiple operons     
 def addChemicalsToOperondf(homolog_operon_df: pd.DataFrame):
+    if (homolog_operon_df is None):
+        return None
     for index, row in homolog_operon_df.iterrows():
         if row['Operon'] == 'EMPTY':
             continue
@@ -204,20 +221,21 @@ def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
     chemicals_in_input_reg_operon = []
     total_gene_num = 0
     
-    for gene in input_reg_operon["operon"]:
-        if "chemicals" in gene.keys():
-            total_gene_num += 1
-            for chemical in gene["chemicals"]:
-                id = chemical["ChEBI ID"]
-                
-                info = {}
-                if "distance" in gene.keys():
-                    info["distance_from_reg"] = gene["distance"]
-                info["identity"] = 100
-                info["coverage"] = 100
-                
-                all_chemicals.setdefault(id, []).append(info)
-                chemicals_in_input_reg_operon.append(id)
+    if (input_reg_operon != "EMPTY"):
+        for gene in input_reg_operon["operon"]:
+            if "chemicals" in gene.keys():
+                total_gene_num += 1
+                for chemical in gene["chemicals"]:
+                    id = chemical["ChEBI ID"]
+                    
+                    info = {}
+                    if "distance" in gene.keys():
+                        info["distance_from_reg"] = gene["distance"]
+                    info["identity"] = 100
+                    info["coverage"] = 100
+                    
+                    all_chemicals.setdefault(id, []).append(info)
+                    chemicals_in_input_reg_operon.append(id)
     
     if homolog_operon_df is None:
         return all_chemicals, set(chemicals_in_input_reg_operon), total_gene_num
@@ -393,6 +411,9 @@ def get_ncbi_id(uniprot_id):
 
 def get_enzyme_description(input_operon):
     all_enzymes_list = []
+    if (input_operon == "EMPTY"):
+        return all_enzymes_list
+    
     for gene in input_operon["operon"]:
         if "description" in gene.keys():
             all_enzymes_list.append(gene["description"])
@@ -401,6 +422,8 @@ def get_enzyme_description(input_operon):
 
 def get_enzyme_description_df(homolog_operon_df: pd.DataFrame):
     all_enzymes_list = []
+    if (homolog_operon_df is None):
+        return all_enzymes_list
     for index, row in homolog_operon_df.iterrows():
         if row['Operon'] == 'EMPTY':
             continue
@@ -422,7 +445,7 @@ def log_function(query, excel_dict):
         # Redirect standard output to the log file
         sys.stdout = log_file
         params = {"ident_cutoff": 70, "cov_cutoff": 90}
-        df = blast(query, "RefSeq", params, 20)
+        df = blast_remote(query, 20)
         filtered_df = filterHomologs(df, 70, 90)
         # too lenient 90 percent coverage 60-70 identity      
         print("Query: " + query)
@@ -456,18 +479,20 @@ def log_function(query, excel_dict):
         addChemicalsToOperondf(homolog_operons)
         
         print("This is how the chemicals are added to the genes in the operon:")
-        for gene in inputs_operon["operon"]:
-            if "chemicals" in gene.keys():
-                print(gene["chemicals"])
+        if (inputs_operon != "EMPTY"):
+            for gene in inputs_operon["operon"]:
+                if "chemicals" in gene.keys():
+                    print(gene["chemicals"])
         print("________________________________")       
         
         print("This is how the chemicals are added to the genes in the homolog operons:")        
-        for index, row in homolog_operons.iterrows():
-            op = row['Operon']
-            if op != 'EMPTY':
-                for gene in op['operon']:
-                    if "chemicals" in gene.keys():
-                        print(gene['chemicals'])
+        if (homolog_operons is not None):
+            for index, row in homolog_operons.iterrows():
+                op = row['Operon']
+                if op != 'EMPTY':
+                    for gene in op['operon']:
+                        if "chemicals" in gene.keys():
+                            print(gene['chemicals'])
         print("________________________________")   
                       
         
@@ -537,7 +562,7 @@ if __name__ == "__main__":
     'AAW51730.1', 'AUW46298.1', 'WP_012273540.1', 'WP_011004209.1', 'AAY86547.1', 'CAY46636.1'
     ]
     
-    queries = failure_mode_queries
+    queries = all_queries
     
     # Read the Excel file
     excel_file_path = '/Users/jiojeong/Desktop/Benchmarking_Dataset.xlsx'
