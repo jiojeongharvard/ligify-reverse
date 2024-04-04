@@ -1,7 +1,7 @@
 # ligify-reverse
 
 Ligify-reverse is a program that predicts protein-ligand interactions. 
-It is based off on the program Ligify, which can be read more about [here]().
+It is based off on the program Ligify, which can be read more about [here](https://www.biorxiv.org/content/10.1101/2024.02.20.581298v1).
 Ligify-reverse takes a protein (refseq id, uniprot id, or primary sequence) as an input and outputs the likely chemical that it binds to.
 The user can run the program with the following command: streamlit run streamlit_app.py
 The user has the option to run the program on three modes: no homology search of input protein, blast search through local diamond database, and remote blast search.
