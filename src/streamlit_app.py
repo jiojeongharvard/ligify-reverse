@@ -370,7 +370,8 @@ if st.session_state.SUBMITTED:
             
             chemical_col.subheader("Chemical scoring")
             output_chemicals_df = pd.DataFrame(output_chemicals)
-            output_chemicals_df = output_chemicals_df.drop(columns=['Subscore'])
+            if ('Subscore' in output_chemicals_df.columns):
+                output_chemicals_df = output_chemicals_df.drop(columns=['Subscore'])
             chemical_col.dataframe(output_chemicals_df)
             
             # # Creating the bar chart
