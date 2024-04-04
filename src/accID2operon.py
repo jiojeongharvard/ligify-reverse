@@ -2,7 +2,6 @@ import requests
 import re
 from pprint import pprint
 import xmltodict
-import time
 
 #TODO:
 # Return a legit error message for the frontend if an error comes up

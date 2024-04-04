@@ -8,15 +8,8 @@ from Bio.Seq import Seq
 from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
-from Bio.Blast import NCBIWWW
-from Bio.Blast import NCBIXML
-
-from pprint import pprint
 import pandas as pd
 import streamlit as st
-
-import xml.etree.ElementTree as ET
-import re
 
 from Bio.Blast.Applications import NcbiblastpCommandline
 
@@ -104,11 +97,20 @@ def blast(acc, input_method, params, max_seqs):
     return inDf
 
 
-def blast_remote(acc: str, num_aligns):
+def blast_remote(acc: str, input_method, params, num_aligns):
 
     # print("NOTE: Starting BLAST")
+    
+    if input_method == "RefSeq":
+        seq = accID2sequence(acc)
+    elif input_method == "Uniprot":
+        seq = uniprotID2sequence(acc)
+    else:
+        seq = acc
+    
+    if (seq is None):
+        return None
 
-    seq = accID2sequence(acc)
     blast_db = "nr"
 
     if seq != None:
@@ -130,7 +132,8 @@ def blast_remote(acc: str, num_aligns):
         df_filtered_end = df_filtered[df_filtered['NCBI Id'].str.len() != 4]
         df_filtered_end['Identity'] = df_filtered_end['Identity'].astype(float)
         df_filtered_end['Coverage'] = df_filtered_end['Coverage'].astype(float)
-        return df_filtered_end
+        final_df = df_filtered_end[(df_filtered_end['Identity'] > params["ident_cutoff"]) & (df_filtered_end['Coverage'] > params["cov_cutoff"])]
+        return final_df
 
     else:
         return None
@@ -193,14 +196,7 @@ if __name__ == "__main__":
         
     # Example usage
     refseq_id = "WP_004925500.1"
-    blast_df = blast_remote(refseq_id, 20)
+    params = {"ident_cutoff": 70, "cov_cutoff": 90}
+    blast_df = blast_remote(refseq_id, "RefSeq", params, 20)
     print(blast_df)
         
-
-    # if acc != None:
-    #     df = blast(acc)
-    #     pprint(df)
-    # else:
-    #     print("bad seq")
-
-    # print(seq)

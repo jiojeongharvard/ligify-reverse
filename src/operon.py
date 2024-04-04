@@ -1,4 +1,3 @@
-import subprocess
 import requests
 import json
 import pandas as pd
@@ -10,7 +9,7 @@ import sys
 import xml.etree.ElementTree as ET
 import re
 import datetime
-import time
+from collections import Counter
 
 # filter out the dataframe of homologs based on given cutoffs
 def filterHomologs(homologs: pd.DataFrame, ident_cutoff:int , cov_cutoff: int):
@@ -129,7 +128,9 @@ def getChemicalsFromAcc(acc):
                         LIGANDS = [i["id"] for i in RXN[0] if i["database"] == "ChEBI"]
                         if len(LIGANDS) != 0:
                             protein_data["ligands"] = LIGANDS
+                    protein_data["numReactions"] = len(RXN)
                 except:
+                    protein_data["numReactions"] = 0
                     pass
 
                     # look for induction
@@ -182,10 +183,14 @@ def addChemicalsToOperon(input_reg_operon):
                     "acetyl-CoA(4-)","acyl-CoA(4-)","hydrogenphosphate","ATP(4-)","ADP(3-)","diphosphate(3-)","DNA 5'-phosphate polyanion","hydrogen acceptor",
                     "hydrogen donor","FMNH(2)(2-)","FMN(3-)","potassium(1+)","iron(2+)","iron(3+)","copper(1+)","copper(2+)","ammonium","aldehyde","carboxylic acid anion",
                     "superoxide","AMP 3'-end(1-) residue","thiol group","H group","lipid II(3-)"]
+    
+    reaction_count = 0
+     
     for gene in input_reg_operon["operon"]:
         ligand_list = []
         protein_data = getChemicalsFromAcc(gene["accession"])
         if isinstance(protein_data, dict):
+            reaction_count += protein_data["numReactions"]
             if "ligands" in protein_data.keys():
                 ligands = protein_data["ligands"]
                 for ligand in ligands:
@@ -198,7 +203,7 @@ def addChemicalsToOperon(input_reg_operon):
             gene['chemicals'] = ligand_list
         
         
-    
+    input_reg_operon["totalRxnCount"] = reaction_count
     return input_reg_operon
     
 # adding chemicals to a DATAFRAME of multiple operons     
@@ -219,12 +224,16 @@ def addChemicalsToOperondf(homolog_operon_df: pd.DataFrame):
 def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
     all_chemicals = {}
     chemicals_in_input_reg_operon = []
-    total_gene_num = 0
+    total_enz_num = 0
+    enz_w_lig_num = 0
+    total_rxn_num = 0
     
     if (input_reg_operon != "EMPTY"):
+        total_rxn_num += input_reg_operon["totalRxnCount"]
         for gene in input_reg_operon["operon"]:
+            total_enz_num += 1
             if "chemicals" in gene.keys():
-                total_gene_num += 1
+                enz_w_lig_num += 1
                 for chemical in gene["chemicals"]:
                     id = chemical["ChEBI ID"]
                     
@@ -238,14 +247,16 @@ def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
                     chemicals_in_input_reg_operon.append(id)
     
     if homolog_operon_df is None:
-        return all_chemicals, set(chemicals_in_input_reg_operon), total_gene_num
+        return all_chemicals, set(chemicals_in_input_reg_operon), total_enz_num, enz_w_lig_num, total_rxn_num
     
     for index, row in homolog_operon_df.iterrows():
         op = row['Operon']
         if op != 'EMPTY':
+            total_rxn_num += op["totalRxnCount"]
             for gene in op['operon']:
+                total_enz_num += 1
                 if "chemicals" in gene.keys():
-                    total_gene_num += 1
+                    enz_w_lig_num += 1
                     for chemical in gene["chemicals"]:
                         id = chemical["ChEBI ID"]
                         
@@ -258,11 +269,11 @@ def getAllChemicalsInOperons(input_reg_operon, homolog_operon_df):
                         
                         all_chemicals.setdefault(id, []).append(info)        
             
-    return all_chemicals, set(chemicals_in_input_reg_operon), total_gene_num
+    return all_chemicals, set(chemicals_in_input_reg_operon), total_enz_num, enz_w_lig_num, total_rxn_num
 
 # compute the score of the chemical based on identity and coverage of homolog and distance between GOI and regulator
 # weights can be adjusted
-def rankChemicals(all_chemicals, chemicals_in_input_reg_operon, cutoff, num_genes, weights):
+def rankChemicals(all_chemicals, chemicals_in_input_reg_operon, cutoff, enz_w_lig_num, weights):
     chemical_scores = []
     
     distance_weight = weights["distance"]
@@ -292,7 +303,7 @@ def rankChemicals(all_chemicals, chemicals_in_input_reg_operon, cutoff, num_gene
         coverage_avg = coverage_sum / num_occurrence
         
         min_occurrence = 0
-        max_occurrence = num_genes
+        max_occurrence = enz_w_lig_num
         normalized_occurrence = (num_occurrence - min_occurrence) / (max_occurrence - min_occurrence)
         # print("chemical id: " + str(chemical))
         # print("identity avg: " + str(identity_avg) + "; coverage avg: " + str(coverage_avg) + "; normalized occ: " + str(normalized_occurrence))
@@ -322,16 +333,15 @@ def rankChemicals(all_chemicals, chemicals_in_input_reg_operon, cutoff, num_gene
             sub_scores["frequency"] = normalized_occurrence
         
         if (total_score > cutoff):
-            chemical_scores.append([chemical, total_score, chemical, sub_scores])
+            temp_dict = {"Chemical Name": chemical, "Score": total_score, "ChEBI ID": chemical, "Subscore": sub_scores}
+            chemical_scores.append(temp_dict)
             
-    sorted_chemical_scores = sorted(chemical_scores, key=lambda x: x[1], reverse = True)
-    
-    for l in sorted_chemical_scores:
-        l[0] = chebi_id_to_name(l[0])
+    sorted_chemical_scores_list_of_dict = sorted(chemical_scores, key=lambda x: x["Score"], reverse = True)
+
+    for l in sorted_chemical_scores_list_of_dict:
+        l["Chemical Name"] = chebi_id_to_name(l["ChEBI ID"])
         
-    
-    num_occurrence_weight = 150
-    return sorted_chemical_scores           
+    return sorted_chemical_scores_list_of_dict           
             
       
 def convert_uniprot_to_embl(uniprot_id):
@@ -383,12 +393,18 @@ def get_uniprot_id(refseq_accession):
     url = "https://rest.uniprot.org/uniprotkb/search?query="+refseq_accession+"&format=json"
     response = requests.get(url)
 
-    if response.status_code == 200:
+    if response.ok:
+        if (json.loads(response.text)["results"] == []):
+            print("FATAL: Bad uniprot API request "+ str(response.status_code))
+            st.error("RefSeq cannot be found in UniprotKB")
+            return ""
         data = json.loads(response.text)["results"][0]
         acc = data["primaryAccession"]
         return acc
-
-    return None
+    else:
+        print("FATAL: Bad uniprot API request "+ str(response.status_code))
+        st.error("RefSeq cannot be found in UniprotKB")
+        return ""
     
 # converting from uniprot id -> ncbi id
 def get_ncbi_id(uniprot_id):
@@ -433,7 +449,18 @@ def get_enzyme_description_df(homolog_operon_df: pd.DataFrame):
             all_enzymes_list.extend(temp)
     
     return all_enzymes_list
-  
+
+def list_of_phrases_to_frequencies(list_of_phrases):
+    phrase_counts = Counter(list_of_phrases)
+    sorted_phrases = dict(sorted(phrase_counts.items(), key=lambda item: item[1], reverse=True))
+    return sorted_phrases
+
+def list_of_phrases_to_word_to_frequencies(list_of_phrases):
+    list_of_words = [word for phrase in list_of_phrases for word in phrase.split()]
+    word_counts = Counter(list_of_words)
+    sorted_words = dict(sorted(word_counts.items(), key=lambda item: item[1], reverse=True))
+    return sorted_words
+
     
 def log_function(query, excel_dict):
     print("Running for " + query)
@@ -444,11 +471,15 @@ def log_function(query, excel_dict):
     with open(log_file_name, 'w') as log_file:
         # Redirect standard output to the log file
         sys.stdout = log_file
+        print("Query: " + query)
         params = {"ident_cutoff": 70, "cov_cutoff": 90}
-        df = blast_remote(query, 20)
+        df = blast_remote(query, "RefSeq", params, 10)
         filtered_df = filterHomologs(df, 70, 90)
         # too lenient 90 percent coverage 60-70 identity      
-        print("Query: " + query)
+        
+        
+        
+        
         inputs_operon, homolog_operons = getOperon(query, filtered_df)
         print("This is how the query's operon looks like:")
         print(inputs_operon)
@@ -475,6 +506,14 @@ def log_function(query, excel_dict):
         print(temp1)
         print("________________________________") 
         
+        print("Phrase frequencies: ")
+        print(list_of_phrases_to_frequencies(temp1))
+        print("________________________________") 
+        print("Word frequencies: ")
+        print(list_of_phrases_to_word_to_frequencies(temp1))
+        print("________________________________") 
+        
+        
         addChemicalsToOperon(inputs_operon)
         addChemicalsToOperondf(homolog_operons)
         
@@ -497,11 +536,11 @@ def log_function(query, excel_dict):
                       
         
         print("These are all the chemicals in the operons:")
-        chem, chemicals_in_input_reg_operon, num_genes = getAllChemicalsInOperons(inputs_operon, homolog_operons)
+        chem, chemicals_in_input_reg_operon, total_enz_num, enz_w_lig_num, total_rxn_num = getAllChemicalsInOperons(inputs_operon, homolog_operons)
         print(chem)
         print("________________________________")      
         
-        print("The total number of enzymes that have chemicals found in the query operon + all homolog operons is: " + str(num_genes))  
+        print("The total number of enzymes that have chemicals found in the query operon + all homolog operons is: " + str(enz_w_lig_num))  
         print("________________________________")  
         
         print("These are all the chemicals ranked:")
@@ -511,7 +550,7 @@ def log_function(query, excel_dict):
         weights["coverage"] = 20
         weights["frequency"] = 170
         weights["max input operon penalty"] = 250
-        output_chemicals = rankChemicals(chem, chemicals_in_input_reg_operon, 0, num_genes, weights)
+        output_chemicals = rankChemicals(chem, chemicals_in_input_reg_operon, 0, enz_w_lig_num, weights)
         for i in output_chemicals:
             print(i)
         
@@ -535,77 +574,4 @@ def log_function(query, excel_dict):
         
     # Restore standard output
     sys.stdout = sys.__stdout__
-      
-if __name__ == "__main__":
-    #all queries that work with ligify
-    all_queries = ["NP_414606.1", "WP_004925500.1", "WP_011336736.1", "NP_414847.3", "NP_418026.1", "NP_415533.1", "WP_011014162.1", "NP_862536.1", "NP_418342.2", "WP_012368846.1", "WP_010974118.1", "NP_418209.1", "NP_414879.3", "WP_000174305.1", "NP_391277.1", "AAC37157.1", "BAE47075.1", "NP_746731.1", "WP_002965779.1", "WP_009968057.1", "WP_011594778.1", "NP_745052.1", "WP_003227022.1", "WP_010813722.1", "WP_001278727.1", "NP_415039.1", "WP_010811303.1", "WP_003114242.1", "WP_013056567.1", "NP_414655.1", "WP_011731512.1"]
-    
-    #queries that work in ligify + have no homolog hits
-    no_homolog = ["NP_414606.1", "NP_414655.1", "NP_414879.3", "NP_415039.1", "NP_415533.1", "NP_418026.1", "NP_418209.1", "WP_000174305.1", "WP_001278727.1", "WP_002965779.1", "WP_003114242.1", "WP_013056567.1"]
-    
-    #queries that work in ligify + have at least a few homolog hits
-    queries = [elem for elem in all_queries if elem not in no_homolog]
-    
-    # these are all the queries that don't work with ligify
-    failure_mode_queries = [
-    'WP_003183369.1', 'WP_010811734.1', 'WP_011614884.1', 'WP_011615200.1', 'WP_010810611.1',
-    'WP_010812428.1', 'NP_421195.1', 'WP_010809162.1', 'BAA86295.1', 'AAK15050.1', 'WP_011614439.1',
-    'WP_041688483.1', 'WP_010951546.1', 'WP_013233032.1', 'WP_010813655.1', 'WP_011616377.1',
-    'WP_001137892.1', 'WP_000929443.1', 'WP_000234823.1', 'WP_001300658.1', 'WP_001300658.1',
-    'WP_035269502.1', 'WP_009944749.1', 'ACS29497.1', 'AAB62296.1', 'WP_000113282.1', 'BAA03510.1',
-    'NP_266817.1', 'NP_059715.1', 'NP_417391.1', 'NP_396546.3', 'WP_004926797.1', 'NP_742225.1',
-    'NP_721604.1', 'NP_542858.1', 'NP_635750.1', 'ACY33523.1', 'BAK65962.1', 'NP_630777.1',
-    'NP_416175.1', 'WP_011291385.1', 'WP_034117836.1', 'WP_002397724.1', 'ABP48117.1', 'BAH70273.1',
-    'WP_014076817.1', 'WP_142664765.1', 'AAK38101.1', 'WP_011028828.1', 'NP_418810.1', 'A0A0D5A3S5',
-    'NP_059701.1', 'WP_003514478.1', 'APY21445.1', 'WP_001145439.1', 'WP_011156222.1', 'WP_004926705.1',
-    'WP_051824537.1', 'WP_011030045.1', 'WP_015475612.1', 'WP_079651080.1', 'BAK67179.1', 'AAA25771.1',
-    'AAW51730.1', 'AUW46298.1', 'WP_012273540.1', 'WP_011004209.1', 'AAY86547.1', 'CAY46636.1'
-    ]
-    
-    queries = all_queries
-    
-    # Read the Excel file
-    excel_file_path = '/Users/jiojeong/Desktop/Benchmarking_Dataset.xlsx'
-    df = pd.read_excel(excel_file_path)
-
-    # Assuming column headers are present and you want to use columns A and D
-    # If your columns don't have headers, you can specify them using 'header=None' parameter in read_excel() and provide 'names' parameter to assign column names.
-
-    # Create the dictionary
-    excel_dict = dict(zip(df['Biosensor RefSeq'], df['Chemical name']))
-
-    # Print the dictionary to verify
-    print(excel_dict)
-    
-    for query in queries:
-        log_function(query, excel_dict)
-    
-    # print(acc2operon("WP_016167756.1"))
-    # print("__")
-    # print(acc2operon("AUX87632.1"))
-    # print("__")
-    # print(acc2operon("TCB33756.1"))
-    
-    # oper = acc2operon("WP_016167756.1")
-    # print(oper)
-    # print(oper['operon'][0]['alias'])
-    
-    # data = {
-    # 'Name': ['A', 'B', 'C', 'D', 'E', 'F'], 
-    # 'Operon': [{'operon':[{'alias': "two"}, {'alias': "wrong"}], 'thing': "okay"}, 
-	# 	{'operon':[{'alias': "one"}, {'alias': "wrong"}], 'thing': "okay"}, 
-    #            {'operon':[{'alias': "one"}, {'alias': "wrong"}], 'thing': "okay"}, 
-    #            {'operon':[{'alias': "three"}, {'alias': "wrong"}], 'thing': "okay"}, 
-	# 	{'operon':[{'alias': "three"}, {'alias': "wrong"}], 'thing': "okay"},
-	# 	{'operon':[{'alias': "two"}, {'alias': "wrong"}], 'thing': "okay"}] 
-    # }
-    # # Creating DataFrame
-    # dff = pd.DataFrame(data)
-    # print(dff)
-    # # filter_condition = dff['Operon'].apply(lambda x: x['operon'][0]['alias']) == dff['Operon'].apply(lambda x: x['operon'][0]['alias']).iloc[0]
-    # # dff = dff[~filter_condition].reset_index(drop=True)
-    # dff['test'] = dff['Operon'].apply(lambda x: x['operon'][0]['alias'])
-    # dff.drop_duplicates(subset='test', keep='first', inplace=True)
-
-    # print(dff)
     
