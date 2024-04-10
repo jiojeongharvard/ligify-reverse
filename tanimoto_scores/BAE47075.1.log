@@ -1,0 +1,11 @@
+Query: BAE47075.1
+Chemicals: 
+{'Chemical Name': '(3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate', 'Score': 97.66857999999999, 'ChEBI ID': 'CHEBI:57412', 'Subscore': {'query operon penalty': 0, 'distance average': 3.8, 'identity average': 99.6078, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'terephthalate(2-)', 'Score': 94.185725, 'ChEBI ID': 'CHEBI:30043', 'Subscore': {'query operon penalty': 0, 'distance average': 3.75, 'identity average': 99.50975, 'coverage average': 100.0, 'frequency': 0.8}}
+{'Chemical Name': '3,4-dihydroxybenzoate', 'Score': 84.4, 'ChEBI ID': 'CHEBI:36241', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.2}}
+true ligand smiles: 
+[O-]C(=O)c1ccc(cc1)C([O-])=O
+Modified chemicals list: 
+{'Chemical Name': '(3S,4R)-3,4-dihydroxycyclohexa-1,5-diene-1,4-dicarboxylate', 'Score': 97.66857999999999, 'ChEBI ID': 'CHEBI:57412', 'Subscore': {'query operon penalty': 0, 'distance average': 3.8, 'identity average': 99.6078, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'O[C@H]1C=C(C=C[C@]1(O)C([O-])=O)C([O-])=O', 'Tanimoto with true ligand': 0.205}
+{'Chemical Name': 'terephthalate(2-)', 'Score': 94.185725, 'ChEBI ID': 'CHEBI:30043', 'Subscore': {'query operon penalty': 0, 'distance average': 3.75, 'identity average': 99.50975, 'coverage average': 100.0, 'frequency': 0.8}, 'SMILES': '[O-]C(=O)c1ccc(cc1)C([O-])=O', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': '3,4-dihydroxybenzoate', 'Score': 84.4, 'ChEBI ID': 'CHEBI:36241', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.2}, 'SMILES': 'C(=O)(C1=CC(=C(C=C1)O)O)[O-]', 'Tanimoto with true ligand': 0.429}

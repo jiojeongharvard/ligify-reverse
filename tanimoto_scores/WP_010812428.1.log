@@ -1,0 +1,7 @@
+Query: WP_010812428.1
+Chemicals: 
+['L-phenylalanine zwitterion', 96.97359999999999, 'CHEBI:58095', {'query operon penalty': 0, 'distance average': 2.2, 'identity average': 98.976, 'coverage average': 99.6, 'frequency': 1.0}]
+true ligand smiles: 
+N[C@@H](Cc1ccc(O)cc1)C(O)=O
+Modified chemicals list: 
+['L-phenylalanine zwitterion', 96.97359999999999, 'CHEBI:58095', {'query operon penalty': 0, 'distance average': 2.2, 'identity average': 98.976, 'coverage average': 99.6, 'frequency': 1.0}, '[NH3+][C@@H](Cc1ccccc1)C([O-])=O', 0.277]

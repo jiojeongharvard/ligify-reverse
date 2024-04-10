@@ -1,0 +1,11 @@
+Query: WP_012368846.1
+Chemicals: 
+{'Chemical Name': 'urea', 'Score': 93.93583720238095, 'ChEBI ID': 'CHEBI:16199', 'Subscore': {'query operon penalty': 0, 'distance average': 2.8125, 'identity average': 99.4451875, 'coverage average': 100.0, 'frequency': 0.7619047619047619}}
+{'Chemical Name': 'ditrans,polycis-undecaprenyl diphosphate(3-)', 'Score': 86.02181904761906, 'ChEBI ID': 'CHEBI:58405', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.522, 'coverage average': 100.0, 'frequency': 0.23809523809523808}}
+{'Chemical Name': '[GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n)-diphospho-ditrans,polycis-undecaprenol polyanion', 'Score': 86.02181904761906, 'ChEBI ID': 'CHEBI:78435', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.522, 'coverage average': 100.0, 'frequency': 0.23809523809523808}}
+true ligand smiles: 
+NC(N)=O
+Modified chemicals list: 
+{'Chemical Name': 'urea', 'Score': 93.93583720238095, 'ChEBI ID': 'CHEBI:16199', 'Subscore': {'query operon penalty': 0, 'distance average': 2.8125, 'identity average': 99.4451875, 'coverage average': 100.0, 'frequency': 0.7619047619047619}, 'SMILES': 'NC(N)=O', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'ditrans,polycis-undecaprenyl diphosphate(3-)', 'Score': 86.02181904761906, 'ChEBI ID': 'CHEBI:58405', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.522, 'coverage average': 100.0, 'frequency': 0.23809523809523808}, 'SMILES': 'CC(C)=CCC\\C(C)=C\\CC\\C(C)=C\\CC\\C(C)=C/CC\\C(C)=C/CC\\C(C)=C/CC\\C(C)=C/CC\\C(C)=C/CC\\C(C)=C/CC\\C(C)=C/CC\\C(C)=C/COP([O-])(=O)OP([O-])([O-])=O', 'Tanimoto with true ligand': 0.041}
+{'Chemical Name': '[GlcNAc-(1->4)-Mur2Ac(oyl-L-Ala-gamma-D-Glu-L-Lys-D-Ala-D-Ala)](n)-diphospho-ditrans,polycis-undecaprenol polyanion', 'Score': 86.02181904761906, 'ChEBI ID': 'CHEBI:78435', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.522, 'coverage average': 100.0, 'frequency': 0.23809523809523808}, 'SMILES': None, 'Tanimoto with true ligand': 0}

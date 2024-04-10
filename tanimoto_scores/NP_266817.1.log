@@ -1,0 +1,5 @@
+Query: NP_266817.1
+Chemicals: 
+true ligand smiles: 
+CC1=C(CCC(O)=O)C2=[N]3C1=Cc1c(C)c(C=C)c4C=C5C(C)=C(C=C)C6=[N]5[Fe]3(Cl)(n14)n1c(=C6)c(C)c(CCC(O)=O)c1=C2
+Modified chemicals list: 

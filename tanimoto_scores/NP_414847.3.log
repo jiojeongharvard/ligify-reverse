@@ -1,0 +1,11 @@
+Query: NP_414847.3
+Chemicals: 
+{'Chemical Name': 'choline', 'Score': 92.66748750000002, 'ChEBI ID': 'CHEBI:15354', 'Subscore': {'query operon penalty': 0, 'distance average': 1.4375, 'identity average': 99.55112500000001, 'coverage average': 100.0, 'frequency': 0.64}}
+{'Chemical Name': 'betaine aldehyde', 'Score': 92.66748750000002, 'ChEBI ID': 'CHEBI:15710', 'Subscore': {'query operon penalty': 0, 'distance average': 1.4375, 'identity average': 99.55112500000001, 'coverage average': 100.0, 'frequency': 0.64}}
+{'Chemical Name': 'glycine betaine', 'Score': 88.11839999999998, 'ChEBI ID': 'CHEBI:17750', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.54399999999998, 'coverage average': 100.0, 'frequency': 0.36}}
+true ligand smiles: 
+C[N+](C)(C)CCO
+Modified chemicals list: 
+{'Chemical Name': 'choline', 'Score': 92.66748750000002, 'ChEBI ID': 'CHEBI:15354', 'Subscore': {'query operon penalty': 0, 'distance average': 1.4375, 'identity average': 99.55112500000001, 'coverage average': 100.0, 'frequency': 0.64}, 'SMILES': 'C[N+](C)(C)CCO', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'betaine aldehyde', 'Score': 92.66748750000002, 'ChEBI ID': 'CHEBI:15710', 'Subscore': {'query operon penalty': 0, 'distance average': 1.4375, 'identity average': 99.55112500000001, 'coverage average': 100.0, 'frequency': 0.64}, 'SMILES': '[H]C(=O)C[N+](C)(C)C', 'Tanimoto with true ligand': 0.25}
+{'Chemical Name': 'glycine betaine', 'Score': 88.11839999999998, 'ChEBI ID': 'CHEBI:17750', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.54399999999998, 'coverage average': 100.0, 'frequency': 0.36}, 'SMILES': 'C[N+](C)(C)CC([O-])=O', 'Tanimoto with true ligand': 0.286}

@@ -1,0 +1,11 @@
+Query: CAY46636.1
+Chemicals: 
+{'Chemical Name': 'trans-urocanate', 'Score': 97.0914076923077, 'ChEBI ID': 'CHEBI:17771', 'Subscore': {'query operon penalty': 0, 'distance average': 3.8461538461538463, 'identity average': 99.10407692307693, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '3-(4-oxo-4,5-dihydro-1H-imidazol-5-yl)propanoate(1-)', 'Score': 91.41227596153846, 'ChEBI ID': 'CHEBI:77893', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.04612499999999, 'coverage average': 100.0, 'frequency': 0.6153846153846154}}
+{'Chemical Name': 'L-histidine zwitterion', 'Score': 85.25494153846155, 'ChEBI ID': 'CHEBI:57595', 'Subscore': {'query operon penalty': 0, 'distance average': 6.8, 'identity average': 99.19680000000001, 'coverage average': 100.0, 'frequency': 0.38461538461538464}}
+true ligand smiles: 
+[O-]C(=O)\C=C\c1c[nH]cn1
+Modified chemicals list: 
+{'Chemical Name': 'trans-urocanate', 'Score': 97.0914076923077, 'ChEBI ID': 'CHEBI:17771', 'Subscore': {'query operon penalty': 0, 'distance average': 3.8461538461538463, 'identity average': 99.10407692307693, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[O-]C(=O)\\C=C\\c1c[nH]cn1', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': '3-(4-oxo-4,5-dihydro-1H-imidazol-5-yl)propanoate(1-)', 'Score': 91.41227596153846, 'ChEBI ID': 'CHEBI:77893', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.04612499999999, 'coverage average': 100.0, 'frequency': 0.6153846153846154}, 'SMILES': '[O-]C(=O)CC[c-]1[nH]c[nH+]c1=O', 'Tanimoto with true ligand': 0.148}
+{'Chemical Name': 'L-histidine zwitterion', 'Score': 85.25494153846155, 'ChEBI ID': 'CHEBI:57595', 'Subscore': {'query operon penalty': 0, 'distance average': 6.8, 'identity average': 99.19680000000001, 'coverage average': 100.0, 'frequency': 0.38461538461538464}, 'SMILES': '[NH3+][C@@H](Cc1c[nH]cn1)C([O-])=O', 'Tanimoto with true ligand': 0.3}

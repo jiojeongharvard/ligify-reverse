@@ -1,0 +1,11 @@
+Query: WP_011014162.1
+Chemicals: 
+{'Chemical Name': 'benzene-1,2,4-triol', 'Score': 97.95260000000002, 'ChEBI ID': 'CHEBI:16971', 'Subscore': {'query operon penalty': 0, 'distance average': 2.3333333333333335, 'identity average': 99.19933333333334, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'maleylacetate', 'Score': 91.63240833333333, 'ChEBI ID': 'CHEBI:16468', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 98.90825, 'coverage average': 100.0, 'frequency': 0.6666666666666666}}
+{'Chemical Name': 'resorcinol', 'Score': 87.92631666666665, 'ChEBI ID': 'CHEBI:27810', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.7815, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+true ligand smiles: 
+Oc1cccc(O)c1
+Modified chemicals list: 
+{'Chemical Name': 'benzene-1,2,4-triol', 'Score': 97.95260000000002, 'ChEBI ID': 'CHEBI:16971', 'Subscore': {'query operon penalty': 0, 'distance average': 2.3333333333333335, 'identity average': 99.19933333333334, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'Oc1ccc(O)c(O)c1', 'Tanimoto with true ligand': 0.333}
+{'Chemical Name': 'maleylacetate', 'Score': 91.63240833333333, 'ChEBI ID': 'CHEBI:16468', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 98.90825, 'coverage average': 100.0, 'frequency': 0.6666666666666666}, 'SMILES': '[O-]C(=O)CC(=O)\\C=C/C([O-])=O', 'Tanimoto with true ligand': 0.029}
+{'Chemical Name': 'resorcinol', 'Score': 87.92631666666665, 'ChEBI ID': 'CHEBI:27810', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.7815, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': 'Oc1cccc(O)c1', 'Tanimoto with true ligand': 1.0}

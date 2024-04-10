@@ -1,0 +1,13 @@
+Query: BAA86295.1
+Chemicals: 
+['ubiquinones', 67.93883333333333, 'CHEBI:16389', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}]
+['ubiquinol', 67.93883333333333, 'CHEBI:17976', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}]
+['FAD(3-)', 67.93883333333333, 'CHEBI:57692', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}]
+['FADH(2)(2-)', 67.93883333333333, 'CHEBI:58307', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}]
+true ligand smiles: 
+O=C1CCCCC1
+Modified chemicals list: 
+['ubiquinones', 67.93883333333333, 'CHEBI:16389', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}, None, 0]
+['ubiquinol', 67.93883333333333, 'CHEBI:17976', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}, None, 0]
+['FAD(3-)', 67.93883333333333, 'CHEBI:57692', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}, 'Cc1cc2nc3c(nc(=O)[n-]c3=O)n(C[C@H](O)[C@H](O)[C@H](O)COP([O-])(=O)OP([O-])(=O)OC[C@H]3O[C@H]([C@H](O)[C@@H]3O)n3cnc4c(N)ncnc34)c2cc1C', 0.022]
+['FADH(2)(2-)', 67.93883333333333, 'CHEBI:58307', {'query operon penalty': 250, 'distance average': 3.3333333333333335, 'identity average': 99.33833333333332, 'coverage average': 97.66666666666667, 'frequency': 1.0}, 'Cc1cc2Nc3c([nH]c(=O)[nH]c3=O)N(C[C@H](O)[C@H](O)[C@H](O)COP([O-])(=O)OP([O-])(=O)OC[C@H]3O[C@H]([C@H](O)[C@@H]3O)n3cnc4c(N)ncnc34)c2cc1C', 0.022]

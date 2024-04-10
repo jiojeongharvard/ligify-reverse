@@ -1,0 +1,11 @@
+Query: NP_418342.2
+Chemicals: 
+{'Chemical Name': 'L-rhamnulose', 'Score': 90.51160688405795, 'ChEBI ID': 'CHEBI:17897', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.67458333333332, 'coverage average': 100.0, 'frequency': 0.5217391304347826}}
+{'Chemical Name': 'L-rhamnulose 1-phosphate(2-)', 'Score': 90.51160688405795, 'ChEBI ID': 'CHEBI:58313', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.67458333333332, 'coverage average': 100.0, 'frequency': 0.5217391304347826}}
+{'Chemical Name': 'L-rhamnopyranose', 'Score': 90.27543478260868, 'ChEBI ID': 'CHEBI:62346', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.67727272727271, 'coverage average': 100.0, 'frequency': 0.4782608695652174}}
+true ligand smiles: 
+C[C@@H]1OC(O)[C@H](O)[C@H](O)[C@H]1O
+Modified chemicals list: 
+{'Chemical Name': 'L-rhamnulose', 'Score': 90.51160688405795, 'ChEBI ID': 'CHEBI:17897', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.67458333333332, 'coverage average': 100.0, 'frequency': 0.5217391304347826}, 'SMILES': 'C[C@H](O)[C@H](O)[C@@H](O)C(=O)CO', 'Tanimoto with true ligand': 0.048}
+{'Chemical Name': 'L-rhamnulose 1-phosphate(2-)', 'Score': 90.51160688405795, 'ChEBI ID': 'CHEBI:58313', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.67458333333332, 'coverage average': 100.0, 'frequency': 0.5217391304347826}, 'SMILES': 'C[C@H](O)[C@H](O)[C@@H](O)C(=O)COP([O-])([O-])=O', 'Tanimoto with true ligand': 0.039}
+{'Chemical Name': 'L-rhamnopyranose', 'Score': 90.27543478260868, 'ChEBI ID': 'CHEBI:62346', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.67727272727271, 'coverage average': 100.0, 'frequency': 0.4782608695652174}, 'SMILES': 'C[C@@H]1OC(O)[C@H](O)[C@H](O)[C@H]1O', 'Tanimoto with true ligand': 1.0}

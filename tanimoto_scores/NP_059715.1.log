@@ -1,0 +1,11 @@
+Query: NP_059715.1
+Chemicals: 
+['urea', 56.46325, 'CHEBI:16199', {'query operon penalty': 250, 'distance average': 9.0, 'identity average': 89.0575, 'coverage average': 99.0, 'frequency': 1.0}]
+['L-argininium(1+)', 56.46325, 'CHEBI:32682', {'query operon penalty': 250, 'distance average': 9.0, 'identity average': 89.0575, 'coverage average': 99.0, 'frequency': 1.0}]
+['L-ornithinium(1+)', 56.46325, 'CHEBI:46911', {'query operon penalty': 250, 'distance average': 9.0, 'identity average': 89.0575, 'coverage average': 99.0, 'frequency': 1.0}]
+true ligand smiles: 
+C[C@@H](N[C@@H](CCCNC(N)=N)C(O)=O)C(O)=O
+Modified chemicals list: 
+['urea', 56.46325, 'CHEBI:16199', {'query operon penalty': 250, 'distance average': 9.0, 'identity average': 89.0575, 'coverage average': 99.0, 'frequency': 1.0}, 'NC(N)=O', 0.125]
+['L-argininium(1+)', 56.46325, 'CHEBI:32682', {'query operon penalty': 250, 'distance average': 9.0, 'identity average': 89.0575, 'coverage average': 99.0, 'frequency': 1.0}, 'NC(=[NH2+])NCCC[C@H]([NH3+])C([O-])=O', 0.246]
+['L-ornithinium(1+)', 56.46325, 'CHEBI:46911', {'query operon penalty': 250, 'distance average': 9.0, 'identity average': 89.0575, 'coverage average': 99.0, 'frequency': 1.0}, '[NH3+]CCC[C@H]([NH3+])C([O-])=O', 0.127]

@@ -1,0 +1,9 @@
+Query: WP_010974118.1
+Chemicals: 
+{'Chemical Name': 'D-psicose', 'Score': 96.5, 'ChEBI ID': 'CHEBI:27605', 'Subscore': {'query operon penalty': 0, 'distance average': 7.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'keto-D-fructose', 'Score': 96.5, 'ChEBI ID': 'CHEBI:48095', 'Subscore': {'query operon penalty': 0, 'distance average': 7.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+OC[C@@H](O)[C@@H](O)[C@@H](O)C(=O)CO
+Modified chemicals list: 
+{'Chemical Name': 'D-psicose', 'Score': 96.5, 'ChEBI ID': 'CHEBI:27605', 'Subscore': {'query operon penalty': 0, 'distance average': 7.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'OC[C@@H](O)[C@@H](O)[C@@H](O)C(=O)CO', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'keto-D-fructose', 'Score': 96.5, 'ChEBI ID': 'CHEBI:48095', 'Subscore': {'query operon penalty': 0, 'distance average': 7.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'OC[C@@H](O)[C@@H](O)[C@H](O)C(=O)CO', 'Tanimoto with true ligand': 1.0}

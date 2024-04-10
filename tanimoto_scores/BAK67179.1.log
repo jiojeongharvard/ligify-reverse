@@ -1,0 +1,13 @@
+Query: BAK67179.1
+Chemicals: 
+{'Chemical Name': '(6S)-5-methyltetrahydrofolate(2-)', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:18608', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}}
+{'Chemical Name': '3-O-methylgallate', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:19950', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}}
+{'Chemical Name': '(6S)-5,6,7,8-tetrahydrofolate(2-)', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:57453', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}}
+{'Chemical Name': 'syringate', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:132111', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}}
+true ligand smiles: 
+COc1cc(\C=C\C(=O)SCCNC(=O)CCNC(=O)[C@H](O)C(C)(C)COP([O-])(=O)OP([O-])(=O)OC[C@H]2O[C@H]([C@H](O)[C@@H]2OP([O-])([O-])=O)n2cnc3c(N)ncnc23)ccc1O
+Modified chemicals list: 
+{'Chemical Name': '(6S)-5-methyltetrahydrofolate(2-)', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:18608', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}, 'SMILES': 'CN1[C@@H](CNc2ccc(cc2)C(=O)N[C@@H](CCC([O-])=O)C([O-])=O)CNc2nc(N)[nH]c(=O)c12', 'Tanimoto with true ligand': 0.1}
+{'Chemical Name': '3-O-methylgallate', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:19950', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}, 'SMILES': 'COc1cc(cc(O)c1O)C([O-])=O', 'Tanimoto with true ligand': 0.107}
+{'Chemical Name': '(6S)-5,6,7,8-tetrahydrofolate(2-)', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:57453', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}, 'SMILES': 'Nc1nc2NC[C@H](CNc3ccc(cc3)C(=O)N[C@@H](CCC([O-])=O)C([O-])=O)Nc2c(=O)[nH]1', 'Tanimoto with true ligand': 0.086}
+{'Chemical Name': 'syringate', 'Score': 92.3335, 'ChEBI ID': 'CHEBI:132111', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 98.485, 'coverage average': 98.0, 'frequency': 1.0}, 'SMILES': 'C=1C(=CC(=C(O)C1OC)OC)C([O-])=O', 'Tanimoto with true ligand': 0.096}

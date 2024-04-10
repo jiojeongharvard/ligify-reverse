@@ -4,10 +4,12 @@ import re
 import pandas as pd
 import requests
 import json
-
+from chemical import get_smiles_from_chebi, smiles_to_image
 from operon import getOperon, filterRegFromOperon, filterRegFromOperondf, get_enzyme_description, get_enzyme_description_df, addChemicalsToOperon, addChemicalsToOperondf, getAllChemicalsInOperons, rankChemicals, list_of_phrases_to_frequencies
 from blast import blast, blast_remote
 from accID2operon import acc2operon
+import datetime
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 st.set_page_config(page_title="Ligify", layout='wide', initial_sidebar_state='auto', 
     #page_icon="images/Snowprint_favicon.png"
@@ -88,7 +90,7 @@ elif input_method == "Protein sequence":
     if re.match(r'^[ACDEFGHIKLMNPQRSTVWYacdefghiklmnpqrstvwy]*$', protein_seq_input) and len(protein_seq_input) > 50:
         acc = protein_seq_input
     else:
-        in2.error("Protein sequence must only contain amino acid characters and have a length over 50")
+        in2.error("Protein sequence must only contain amino acid characters and have a length over 50. Make sure there is no new line after the sequence.")
 
 
 
@@ -141,7 +143,7 @@ with st.sidebar:
     filter_redundant = st.checkbox("Filter Redundant Homologs", value=True, key='filter_redundant')
 
     # Number input for maximum number of homologs with a default value
-    max_homologs = st.number_input("Maximum Number of Homologs", min_value=1, max_value=100, value=20, key='max_homologs')
+    max_homologs = st.number_input("Maximum Number of Homologs", min_value=1, max_value=100, value=50, key='max_homologs')
     st.divider()
     
     st.write("Chemical Scoring")
@@ -187,28 +189,47 @@ with st.form(key='ligify'):
 
 # RUN LIGIFY
 if st.session_state.SUBMITTED:
-    st.write("submitted")
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    st.write(f"Submitted at {current_time}")
+    
+    chemical = st.container()
+    chem1, chem2, chem3 = chemical.columns((2,2,2))
+    chemical_col, spacer = chemical.columns((4,1))
+    
     intermediate = st.container()
     input1, input2 = intermediate.columns((4,1))
-    blast_col, chemical_col, enzyme_col = intermediate.columns((1.3,2,2.2))
+    blast_col, enzyme_col = intermediate.columns((3,3))
     
     metrics = st.container()
     m_spacer1, metrics_col, m_spacer2 = metrics.columns((1,7,1))
-
+    
+    if (search_homolog and input_method == "Protein sequence"):
+        st.error("When input format is protein sequence, must perform homology search")
 
     with st.spinner("Running..."):
         
         prog_container = st.container()
         prog_spacerL, prog, prog_spacerR = prog_container.columns((1,3,1))
         prog_bar = prog.progress(10, text="1. Fetching homologs")
-        
         blast_df = pd.DataFrame()
-        if (search_homolog and not use_blast_remote):
-            blast_df = blast(acc, input_method, blast_params, max_homologs)
-        elif (search_homolog and use_blast_remote):
-            blast_df = blast_remote(acc, input_method, blast_params, max_homologs)
+        
+        def execute_blast():
+            if search_homolog and not use_blast_remote:
+                return blast(acc, input_method, blast_params, 100)
+            elif search_homolog and use_blast_remote:
+                return blast_remote(acc, input_method, blast_params, 100)
+            else:
+                return pd.DataFrame()  # or appropriate default action
+
+        # Using ThreadPoolExecutor to run blast functions with a timeout
+        with ThreadPoolExecutor() as executor:
+            future = executor.submit(execute_blast)
+            try:
+                # Set timeout to 3600 seconds (1 hour)
+                blast_df = future.result(timeout=3600)
+            except TimeoutError:
+                st.error("The BLAST operation timed out after an hour. Please try again later.")
             
-               
         # If BLAST does not return anything, troubleshoot the issue.
         if blast_df.empty and search_homolog:
             if input_method == "Protein sequence":
@@ -256,11 +277,10 @@ if st.session_state.SUBMITTED:
                             {"Uniprot Id": row["Uniprot Id"], "Identity": row["Identity"],"Coverage": row["Coverage"]}
                             for i, row in blast_df.iterrows()
                         ]
-                
-
             # limit search to specified number of homologs
-            # homolog_dict = homolog_dict[0:max_homologs]
-            
+            if (search_homolog):
+                if (len(homolog_dict) > max_homologs):
+                    homolog_dict = homolog_dict[0:max_homologs]
             
             # converting from refseq -> uniprot id
             def get_uniprot_id(refseq_accession):
@@ -300,16 +320,20 @@ if st.session_state.SUBMITTED:
                 
             prog_bar.progress(30, text=f"3. Fetching information on input protein")
             uniprot = ""
-            if (not search_homolog):
-                if (input_method == "RefSeq"):
-                    uniprot = get_uniprot_id(acc)
-                elif (input_method == "Uniprot"):
-                    uniprot = acc
-            else: 
-                if (not use_blast_remote):
-                    uniprot = blast_df.iloc[0]["Uniprot Id"]
-                if (use_blast_remote):
-                    uniprot = get_uniprot_id(blast_df.iloc[0]["NCBI Id"])
+            if (input_method == "RefSeq"):
+                uniprot = get_uniprot_id(acc)
+            elif (input_method == "Uniprot"):
+                uniprot = acc
+            else:
+                if (search_homolog):
+                    if (blast_df.iloc[0]['Coverage'] == 100 and blast_df.iloc[0]['Identity'] == 100):
+                        if (not use_blast_remote):
+                            uniprot = blast_df.iloc[0]["Uniprot Id"]
+                        else:
+                            uniprot = get_uniprot_id(blast_df.iloc[0]["NCBI Id"])
+            
+            if (input_method == "Protein sequence"):
+                acc = uniprot
             
             try:
                 protein_data = uniprotID2info(uniprot)
@@ -368,6 +392,24 @@ if st.session_state.SUBMITTED:
             output_chemicals = rankChemicals(chem, chemicals_in_input_reg_operon, 0, enz_w_lig_num, weights)
             num_chemicals = len(output_chemicals)
             
+            # need name, structure, score
+            
+            if (len(output_chemicals) >= 1):
+                chem1.subheader("1st place")
+                chem1_img = smiles_to_image(get_smiles_from_chebi(output_chemicals[0]["ChEBI ID"]))
+                chem1.image(chem1_img, caption=f"name: {output_chemicals[0]['Chemical Name']}, score: {output_chemicals[0]['Score']}")
+                
+            if (len(output_chemicals) >= 2):
+                chem2.subheader("2nd place")
+                chem2_img = smiles_to_image(get_smiles_from_chebi(output_chemicals[1]["ChEBI ID"]))
+                chem2.image(chem2_img, caption=f"name: {output_chemicals[1]['Chemical Name']}, score: {output_chemicals[1]['Score']}")
+            
+            if (len(output_chemicals) >= 3):
+                chem3.subheader("3rd place")
+                chem3_img = smiles_to_image(get_smiles_from_chebi(output_chemicals[2]["ChEBI ID"]))
+                chem3.image(chem3_img, caption=f"name: {output_chemicals[2]['Chemical Name']}, score: {output_chemicals[2]['Score']}")
+            
+            
             chemical_col.subheader("Chemical scoring")
             output_chemicals_df = pd.DataFrame(output_chemicals)
             if ('Subscore' in output_chemicals_df.columns):
@@ -392,12 +434,11 @@ if st.session_state.SUBMITTED:
             prog_bar.empty()
             
             metrics_col.subheader("Search metrics")
-            m_homologs, m_tot_genes, m_enz_w_lig, m_reactions, m_chemicals = metrics_col.columns(5)
+            m_homologs, m_tot_genes, m_reactions, m_chemicals = metrics_col.columns(4)
             m_homologs.metric("Homologs", num_homologs)
-            m_tot_genes.metric("Total Enzymes", total_enz_num)
-            m_enz_w_lig.metric("Liganded Enzymes", enz_w_lig_num)
-            m_reactions.metric("Reactions", total_rxn_num)
-            m_chemicals.metric("Chemicals", num_chemicals)
+            m_tot_genes.metric("Total proteins", total_enz_num)
+            m_reactions.metric("Reactions found", total_rxn_num)
+            m_chemicals.metric("Unique chemicals", num_chemicals)
             metrics_col.divider()
                 
             

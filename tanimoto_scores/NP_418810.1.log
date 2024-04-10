@@ -1,0 +1,13 @@
+Query: NP_418810.1
+Chemicals: 
+{'Chemical Name': 'XDP(3-)', 'Score': 95.85178666666667, 'ChEBI ID': 'CHEBI:59884', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.2592, 'coverage average': 100.0, 'frequency': 0.8333333333333334}}
+{'Chemical Name': 'XTP(4-)', 'Score': 95.85178666666667, 'ChEBI ID': 'CHEBI:61314', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.2592, 'coverage average': 100.0, 'frequency': 0.8333333333333334}}
+{'Chemical Name': 'IDP(3-)', 'Score': 59.314733333333336, 'ChEBI ID': 'CHEBI:58280', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 99.074, 'coverage average': 100.0, 'frequency': 0.16666666666666666}}
+{'Chemical Name': 'ITP(4-)', 'Score': 59.314733333333336, 'ChEBI ID': 'CHEBI:61402', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 99.074, 'coverage average': 100.0, 'frequency': 0.16666666666666666}}
+true ligand smiles: 
+N[C@@H](Cc1c[nH]c2ccccc12)C(O)=O
+Modified chemicals list: 
+{'Chemical Name': 'XDP(3-)', 'Score': 95.85178666666667, 'ChEBI ID': 'CHEBI:59884', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.2592, 'coverage average': 100.0, 'frequency': 0.8333333333333334}, 'SMILES': 'O[C@@H]1[C@@H](COP([O-])(=O)OP([O-])([O-])=O)O[C@H]([C@@H]1O)n1cnc2c1[nH]c(=O)[nH]c2=O', 'Tanimoto with true ligand': 0.067}
+{'Chemical Name': 'XTP(4-)', 'Score': 95.85178666666667, 'ChEBI ID': 'CHEBI:61314', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.2592, 'coverage average': 100.0, 'frequency': 0.8333333333333334}, 'SMILES': 'O[C@@H]1[C@@H](COP([O-])(=O)OP([O-])(=O)OP([O-])([O-])=O)O[C@H]([C@@H]1O)n1cnc2c1[nH]c(=O)[nH]c2=O', 'Tanimoto with true ligand': 0.064}
+{'Chemical Name': 'IDP(3-)', 'Score': 59.314733333333336, 'ChEBI ID': 'CHEBI:58280', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 99.074, 'coverage average': 100.0, 'frequency': 0.16666666666666666}, 'SMILES': 'O[C@@H]1[C@@H](COP([O-])(=O)OP([O-])([O-])=O)O[C@H]([C@@H]1O)n1cnc2c1nc[nH]c2=O', 'Tanimoto with true ligand': 0.077}
+{'Chemical Name': 'ITP(4-)', 'Score': 59.314733333333336, 'ChEBI ID': 'CHEBI:61402', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 99.074, 'coverage average': 100.0, 'frequency': 0.16666666666666666}, 'SMILES': 'O[C@@H]1[C@@H](COP([O-])(=O)OP([O-])(=O)OP([O-])([O-])=O)O[C@H]([C@@H]1O)n1cnc2c1nc[nH]c2=O', 'Tanimoto with true ligand': 0.074}

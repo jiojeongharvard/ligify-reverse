@@ -1,0 +1,11 @@
+Query: WP_003227022.1
+Chemicals: 
+{'Chemical Name': 'carbon monoxide', 'Score': 99.5, 'ChEBI ID': 'CHEBI:17245', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '2-(3,4-dihydroxybenzoyloxy)-4,6-dihydroxybenzoate', 'Score': 99.5, 'ChEBI ID': 'CHEBI:57628', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'quercetin-7-olate', 'Score': 99.5, 'ChEBI ID': 'CHEBI:57694', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+OC1=CC(O)=C2C(OC(=C(O)C2=O)C2=CC(O)=C(O)C=C2)=C1
+Modified chemicals list: 
+{'Chemical Name': 'carbon monoxide', 'Score': 99.5, 'ChEBI ID': 'CHEBI:17245', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[C-]#[O+]', 'Tanimoto with true ligand': 0.0}
+{'Chemical Name': '2-(3,4-dihydroxybenzoyloxy)-4,6-dihydroxybenzoate', 'Score': 99.5, 'ChEBI ID': 'CHEBI:57628', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'Oc1cc(O)c(C([O-])=O)c(OC(=O)c2ccc(O)c(O)c2)c1', 'Tanimoto with true ligand': 0.19}
+{'Chemical Name': 'quercetin-7-olate', 'Score': 99.5, 'ChEBI ID': 'CHEBI:57694', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'Oc1ccc(cc1O)-c1oc2cc([O-])cc(O)c2c(=O)c1O', 'Tanimoto with true ligand': 0.672}

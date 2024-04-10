@@ -1,0 +1,13 @@
+Query: BAH70273.1
+Chemicals: 
+{'Chemical Name': '3-sn-phosphatidyl-L-serine(1-)', 'Score': 56.46796666666667, 'ChEBI ID': 'CHEBI:57262', 'Subscore': {'query operon penalty': 250, 'distance average': 6.0, 'identity average': 96.183, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+{'Chemical Name': '1,2-diacyl-sn-glycero-3-phosphoethanolamine zwitterion', 'Score': 56.46796666666667, 'ChEBI ID': 'CHEBI:64612', 'Subscore': {'query operon penalty': 250, 'distance average': 6.0, 'identity average': 96.183, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+{'Chemical Name': 'D-glucarate(2-)', 'Score': 37.27588333333334, 'ChEBI ID': 'CHEBI:30612', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 82.2205, 'coverage average': 94.0, 'frequency': 0.6666666666666666}}
+{'Chemical Name': '5-dehydro-4-deoxy-D-glucarate(2-)', 'Score': 37.27588333333334, 'ChEBI ID': 'CHEBI:42819', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 82.2205, 'coverage average': 94.0, 'frequency': 0.6666666666666666}}
+true ligand smiles: 
+[O-]C(=O)c1cccc(c1)C([O-])=O
+Modified chemicals list: 
+{'Chemical Name': '3-sn-phosphatidyl-L-serine(1-)', 'Score': 56.46796666666667, 'ChEBI ID': 'CHEBI:57262', 'Subscore': {'query operon penalty': 250, 'distance average': 6.0, 'identity average': 96.183, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': '[NH3+][C@@H](COP([O-])(=O)OC[C@@H](COC([*])=O)OC([*])=O)C([O-])=O', 'Tanimoto with true ligand': 0.081}
+{'Chemical Name': '1,2-diacyl-sn-glycero-3-phosphoethanolamine zwitterion', 'Score': 56.46796666666667, 'ChEBI ID': 'CHEBI:64612', 'Subscore': {'query operon penalty': 250, 'distance average': 6.0, 'identity average': 96.183, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': 'O(P(=O)(OCC[NH3+])[O-])C[C@H](OC(*)=O)COC(*)=O', 'Tanimoto with true ligand': 0.066}
+{'Chemical Name': 'D-glucarate(2-)', 'Score': 37.27588333333334, 'ChEBI ID': 'CHEBI:30612', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 82.2205, 'coverage average': 94.0, 'frequency': 0.6666666666666666}, 'SMILES': 'O[C@@H]([C@H](O)[C@@H](O)C([O-])=O)[C@H](O)C([O-])=O', 'Tanimoto with true ligand': 0.161}
+{'Chemical Name': '5-dehydro-4-deoxy-D-glucarate(2-)', 'Score': 37.27588333333334, 'ChEBI ID': 'CHEBI:42819', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 82.2205, 'coverage average': 94.0, 'frequency': 0.6666666666666666}, 'SMILES': 'O[C@@H](CC(=O)C([O-])=O)[C@@H](O)C([O-])=O', 'Tanimoto with true ligand': 0.128}

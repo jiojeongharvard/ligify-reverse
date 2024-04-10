@@ -1,0 +1,13 @@
+Query: WP_010810611.1
+Chemicals: 
+['pyruvate', 94.45688888888888, 'CHEBI:15361', {'query operon penalty': 0, 'distance average': 1.5555555555555556, 'identity average': 97.21333333333334, 'coverage average': 100.0, 'frequency': 0.9}]
+['(R)-malate(2-)', 91.17542857142857, 'CHEBI:15588', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 97.06857142857143, 'coverage average': 100.0, 'frequency': 0.7}]
+['phosphonatoenolpyruvate', 58.114233333333324, 'CHEBI:58702', {'query operon penalty': 250, 'distance average': 4.0, 'identity average': 97.28566666666666, 'coverage average': 100.0, 'frequency': 0.3}]
+['2-phosphonato-D-glycerate(3-)', 53.2587, 'CHEBI:58289', {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 96.417, 'coverage average': 100.0, 'frequency': 0.1}]
+true ligand smiles: 
+O[C@H]([C@@H](O)C([O-])=O)C([O-])=O
+Modified chemicals list: 
+['pyruvate', 94.45688888888888, 'CHEBI:15361', {'query operon penalty': 0, 'distance average': 1.5555555555555556, 'identity average': 97.21333333333334, 'coverage average': 100.0, 'frequency': 0.9}, 'CC(=O)C([O-])=O', 0.294]
+['(R)-malate(2-)', 91.17542857142857, 'CHEBI:15588', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 97.06857142857143, 'coverage average': 100.0, 'frequency': 0.7}, 'O[C@H](CC([O-])=O)C([O-])=O', 0.381]
+['phosphonatoenolpyruvate', 58.114233333333324, 'CHEBI:58702', {'query operon penalty': 250, 'distance average': 4.0, 'identity average': 97.28566666666666, 'coverage average': 100.0, 'frequency': 0.3}, '[O-]C(=O)C(=C)OP([O-])([O-])=O', 0.185]
+['2-phosphonato-D-glycerate(3-)', 53.2587, 'CHEBI:58289', {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 96.417, 'coverage average': 100.0, 'frequency': 0.1}, 'OC[C@@H](OP([O-])([O-])=O)C([O-])=O', 0.25]

@@ -1,0 +1,9 @@
+Query: NP_542858.1
+Chemicals: 
+{'Chemical Name': '(2Z,4E)-2-hydroxymuconate(2-)', 'Score': 97.98639999999997, 'ChEBI ID': 'CHEBI:28080', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.62399999999998, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '(3E)-2-oxohex-3-enedioate', 'Score': 97.98639999999997, 'ChEBI ID': 'CHEBI:64908', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.62399999999998, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+Cc1cccc(c1)C([O-])=O
+Modified chemicals list: 
+{'Chemical Name': '(2Z,4E)-2-hydroxymuconate(2-)', 'Score': 97.98639999999997, 'ChEBI ID': 'CHEBI:28080', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.62399999999998, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'O\\C(=C/C=C/C([O-])=O)C([O-])=O', 'Tanimoto with true ligand': 0.114}
+{'Chemical Name': '(3E)-2-oxohex-3-enedioate', 'Score': 97.98639999999997, 'ChEBI ID': 'CHEBI:64908', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.62399999999998, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[O-]C(=O)C\\C=C\\C(=O)C([O-])=O', 'Tanimoto with true ligand': 0.114}

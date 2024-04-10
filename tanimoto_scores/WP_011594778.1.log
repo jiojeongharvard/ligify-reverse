@@ -1,0 +1,11 @@
+Query: WP_011594778.1
+Chemicals: 
+{'Chemical Name': 'resorcinol', 'Score': 99.25, 'ChEBI ID': 'CHEBI:27810', 'Subscore': {'query operon penalty': 0, 'distance average': 1.5, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'benzene-1,2,4-triol', 'Score': 91.0, 'ChEBI ID': 'CHEBI:16971', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': '2,6-dihydroxybenzoate', 'Score': 90.5, 'ChEBI ID': 'CHEBI:131450', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.5}}
+true ligand smiles: 
+C1=CC(=C(C(=C1)O)C([O-])=O)O
+Modified chemicals list: 
+{'Chemical Name': 'resorcinol', 'Score': 99.25, 'ChEBI ID': 'CHEBI:27810', 'Subscore': {'query operon penalty': 0, 'distance average': 1.5, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'Oc1cccc(O)c1', 'Tanimoto with true ligand': 0.25}
+{'Chemical Name': 'benzene-1,2,4-triol', 'Score': 91.0, 'ChEBI ID': 'CHEBI:16971', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.5}, 'SMILES': 'Oc1ccc(O)c(O)c1', 'Tanimoto with true ligand': 0.182}
+{'Chemical Name': '2,6-dihydroxybenzoate', 'Score': 90.5, 'ChEBI ID': 'CHEBI:131450', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.5}, 'SMILES': 'C1=CC(=C(C(=C1)O)C([O-])=O)O', 'Tanimoto with true ligand': 1.0}

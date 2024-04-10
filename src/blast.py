@@ -54,7 +54,7 @@ def blast(acc, input_method, params, max_seqs):
         seq = acc
     
     if (seq is None):
-        return None
+        return pd.DataFrame()
         
     flags = 'sseqid pident qcovhsp'
         # Must set this memory limit for running on a 1GB EC2 instance
@@ -109,7 +109,7 @@ def blast_remote(acc: str, input_method, params, num_aligns):
         seq = acc
     
     if (seq is None):
-        return None
+        return pd.DataFrame()
 
     blast_db = "nr"
 
@@ -196,7 +196,5 @@ if __name__ == "__main__":
         
     # Example usage
     refseq_id = "WP_004925500.1"
-    params = {"ident_cutoff": 70, "cov_cutoff": 90}
-    blast_df = blast_remote(refseq_id, "RefSeq", params, 20)
-    print(blast_df)
+    print(accID2sequence(refseq_id))
         

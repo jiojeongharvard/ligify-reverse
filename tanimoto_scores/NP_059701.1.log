@@ -1,0 +1,9 @@
+Query: NP_059701.1
+Chemicals: 
+{'Chemical Name': 'D-alanine zwitterion', 'Score': 63.169399999999996, 'ChEBI ID': 'CHEBI:57416', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 95.154, 'coverage average': 97.0, 'frequency': 1.0}}
+{'Chemical Name': 'L-alanine zwitterion', 'Score': 63.169399999999996, 'ChEBI ID': 'CHEBI:57972', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 95.154, 'coverage average': 97.0, 'frequency': 1.0}}
+true ligand smiles: 
+O[C@H](CCCC(O)=O)/C=C\C=C\CCC(=O)C/C=C\CCCCC(O)=O
+Modified chemicals list: 
+{'Chemical Name': 'D-alanine zwitterion', 'Score': 63.169399999999996, 'ChEBI ID': 'CHEBI:57416', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 95.154, 'coverage average': 97.0, 'frequency': 1.0}, 'SMILES': 'C[C@@H]([NH3+])C([O-])=O', 'Tanimoto with true ligand': 0.082}
+{'Chemical Name': 'L-alanine zwitterion', 'Score': 63.169399999999996, 'ChEBI ID': 'CHEBI:57972', 'Subscore': {'query operon penalty': 250, 'distance average': 1.0, 'identity average': 95.154, 'coverage average': 97.0, 'frequency': 1.0}, 'SMILES': 'C[C@H]([NH3+])C([O-])=O', 'Tanimoto with true ligand': 0.082}

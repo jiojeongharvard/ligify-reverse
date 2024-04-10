@@ -1,6 +1,7 @@
 python==3.12.1
 streamlit==1.32.2
 pandas==2.1.4
+rdkit==2024.03.1
 requests==2.31.0
 biopython==1.78
 blast==2.15.0

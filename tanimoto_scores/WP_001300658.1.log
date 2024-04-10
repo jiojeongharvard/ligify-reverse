@@ -1,0 +1,13 @@
+Query: WP_001300658.1
+Chemicals: 
+['L-cysteine residue', 99.30933333333337, 'CHEBI:29950', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}]
+['alcohol', 99.30933333333337, 'CHEBI:30879', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}]
+['peroxol', 99.30933333333337, 'CHEBI:35924', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}]
+['L-cystine residue', 99.30933333333337, 'CHEBI:50058', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}]
+true ligand smiles: 
+N[C@@H](Cc1ccc(O)cc1)C(O)=O
+Modified chemicals list: 
+['L-cysteine residue', 99.30933333333337, 'CHEBI:29950', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}, 'C(=O)(*)[C@@H](N*)CS', 0.114]
+['alcohol', 99.30933333333337, 'CHEBI:30879', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}, 'O[*]', 0.031]
+['peroxol', 99.30933333333337, 'CHEBI:35924', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}, 'OO[*]', 0.029]
+['L-cystine residue', 99.30933333333337, 'CHEBI:50058', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.8266666666667, 'coverage average': 100.0, 'frequency': 1.0}, 'C([C@@H](N*)CSSC[C@@H](C(=O)*)N*)(=O)*', 0.109]

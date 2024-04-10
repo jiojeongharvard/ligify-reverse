@@ -54,25 +54,23 @@ def filterRegFromOperon(acc: str, input_reg_operon):
     if (input_reg_operon == "EMPTY"):
         return "EMPTY"
     
+    regulator = re.compile(r"regulator|repressor|activator|regulatory")
+    
     index = 0
-    index_of_reg = None
+    index_of_reg = input_reg_operon["enzyme_index"]
+    
     for gene in input_reg_operon["operon"]:
         gene['index'] = index
-        if gene['accession'] == acc:
-            index_of_reg = index
         index = index + 1
     
     if index_of_reg != None:
         for gene in input_reg_operon["operon"]:
-            if gene['accession'] != acc:
-                gene['distance'] = abs(gene['index'] - index_of_reg)
-    
-    regulator = re.compile(r"regulator|repressor|activator")
+            gene['distance'] = abs(gene['index'] - index_of_reg)
     
     to_replace = []
     for gene in input_reg_operon["operon"]:
         if "description" in gene.keys():
-            if not regulator.search(gene["description"]):
+            if not regulator.search(gene["description"]) and gene['accession'] != acc:
                 to_replace.append(gene)
                 
     input_reg_operon["operon"] = to_replace
@@ -180,9 +178,10 @@ def addChemicalsToOperon(input_reg_operon):
         return "EMPTY"
     
     not_ligands = ["hydron", "water", "carbon dioxide", 'NADP(3-)', 'NADPH(4-)', 'NADH(2-)', 'NAD(1-)', 'hydrogen peroxide', 'dioxygen', "coenzyme A(4-)",
-                    "acetyl-CoA(4-)","acyl-CoA(4-)","hydrogenphosphate","ATP(4-)","ADP(3-)","diphosphate(3-)","DNA 5'-phosphate polyanion","hydrogen acceptor",
+                    "acetyl-CoA(4-)","acyl-CoA(4-)","hydrogenphosphate","ATP(4-)","ADP(3-)", "AMP(2-)", "diphosphate(3-)","DNA 5'-phosphate polyanion","hydrogen acceptor",
                     "hydrogen donor","FMNH(2)(2-)","FMN(3-)","potassium(1+)","iron(2+)","iron(3+)","copper(1+)","copper(2+)","ammonium","aldehyde","carboxylic acid anion",
-                    "superoxide","AMP 3'-end(1-) residue","thiol group","H group","lipid II(3-)"]
+                    "superoxide","AMP 3'-end(1-) residue","thiol group","H group","lipid II(3-)", 'GTP(4-)', 'GDP(3-)', 'GMP(2-)' ,'FAD(3-)', 'FADH(2)(2-)', ' sodium(1+)', 
+                    'flavin(1-)', '1,5-dihydroflavin']
     
     reaction_count = 0
      
@@ -473,7 +472,7 @@ def log_function(query, excel_dict):
         sys.stdout = log_file
         print("Query: " + query)
         params = {"ident_cutoff": 70, "cov_cutoff": 90}
-        df = blast_remote(query, "RefSeq", params, 10)
+        df = blast_remote(query, "RefSeq", params, 20)
         filtered_df = filterHomologs(df, 70, 90)
         # too lenient 90 percent coverage 60-70 identity      
         
@@ -575,3 +574,9 @@ def log_function(query, excel_dict):
     # Restore standard output
     sys.stdout = sys.__stdout__
     
+if __name__ == "__main__":
+    
+    print(get_uniprot_id("NP_391277.1"))
+    print("_____")
+    print(get_ncbi_id("AGA23232.1"))
+    print("_____")

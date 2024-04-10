@@ -1,0 +1,17 @@
+Query: WP_013056567.1
+Chemicals: 
+{'Chemical Name': 'alpha-D-xylose', 'Score': 87.31656666666669, 'ChEBI ID': 'CHEBI:28518', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}}
+{'Chemical Name': 'alpha-D-xylulofuranose', 'Score': 87.31656666666669, 'ChEBI ID': 'CHEBI:188998', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}}
+{'Chemical Name': 'hydroquinones', 'Score': 87.26675, 'ChEBI ID': 'CHEBI:24646', 'Subscore': {'query operon penalty': 0, 'distance average': 4.5, 'identity average': 99.7425, 'coverage average': 100.0, 'frequency': 0.4}}
+{'Chemical Name': '1,4-benzoquinones', 'Score': 87.26675, 'ChEBI ID': 'CHEBI:132124', 'Subscore': {'query operon penalty': 0, 'distance average': 4.5, 'identity average': 99.7425, 'coverage average': 100.0, 'frequency': 0.4}}
+{'Chemical Name': 'D-xylulose', 'Score': 86.81656666666669, 'ChEBI ID': 'CHEBI:17140', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}}
+{'Chemical Name': 'D-xylulose 5-phosphate(2-)', 'Score': 86.81656666666669, 'ChEBI ID': 'CHEBI:57737', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}}
+true ligand smiles: 
+O[C@@H]1CO[C@H](O)[C@H](O)[C@H]1O
+Modified chemicals list: 
+{'Chemical Name': 'alpha-D-xylose', 'Score': 87.31656666666669, 'ChEBI ID': 'CHEBI:28518', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}, 'SMILES': 'O[C@@H]1CO[C@H](O)[C@H](O)[C@H]1O', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'alpha-D-xylulofuranose', 'Score': 87.31656666666669, 'ChEBI ID': 'CHEBI:188998', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}, 'SMILES': 'O1[C@](O)([C@@H](O)[C@H](O)C1)CO', 'Tanimoto with true ligand': 0.194}
+{'Chemical Name': 'hydroquinones', 'Score': 87.26675, 'ChEBI ID': 'CHEBI:24646', 'Subscore': {'query operon penalty': 0, 'distance average': 4.5, 'identity average': 99.7425, 'coverage average': 100.0, 'frequency': 0.4}, 'SMILES': 'OC1=C(*)C(*)=C(O)C(*)=C1*', 'Tanimoto with true ligand': 0.033}
+{'Chemical Name': '1,4-benzoquinones', 'Score': 87.26675, 'ChEBI ID': 'CHEBI:132124', 'Subscore': {'query operon penalty': 0, 'distance average': 4.5, 'identity average': 99.7425, 'coverage average': 100.0, 'frequency': 0.4}, 'SMILES': 'O=C1C(*)=C(*)C(=O)C(*)=C1*', 'Tanimoto with true ligand': 0.0}
+{'Chemical Name': 'D-xylulose', 'Score': 86.81656666666669, 'ChEBI ID': 'CHEBI:17140', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}, 'SMILES': 'C(O)C(=O)[C@@H](O)[C@H](O)CO', 'Tanimoto with true ligand': 0.026}
+{'Chemical Name': 'D-xylulose 5-phosphate(2-)', 'Score': 86.81656666666669, 'ChEBI ID': 'CHEBI:57737', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.74233333333335, 'coverage average': 100.0, 'frequency': 0.3}, 'SMILES': 'OCC(=O)[C@@H](O)[C@H](O)COP([O-])([O-])=O', 'Tanimoto with true ligand': 0.02}

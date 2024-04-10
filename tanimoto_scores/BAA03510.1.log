@@ -1,0 +1,9 @@
+Query: BAA03510.1
+Chemicals: 
+['(1R)-bornane-2,5-dione', 99.5, 'CHEBI:15392', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}]
+['(+)-exo-5-hydroxycamphor', 99.5, 'CHEBI:15398', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}]
+true ligand smiles: 
+CC1(C)C2CCC1(C)C(=O)C2
+Modified chemicals list: 
+['(1R)-bornane-2,5-dione', 99.5, 'CHEBI:15392', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, 'CC1(C)[C@H]2CC(=O)[C@]1(C)CC2=O', 0.361]
+['(+)-exo-5-hydroxycamphor', 99.5, 'CHEBI:15398', {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 1.0}, '[H][C@]12CC(=O)[C@](C)(C[C@H]1O)C2(C)C', 0.351]

@@ -1,0 +1,9 @@
+Query: WP_015475612.1
+Chemicals: 
+{'Chemical Name': '3-hydroxyisobutyrate', 'Score': 48.0741, 'ChEBI ID': 'CHEBI:11805', 'Subscore': {'query operon penalty': 250, 'distance average': 2.0, 'identity average': 76.431, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '2-methyl-3-oxopropanoate', 'Score': 48.0741, 'ChEBI ID': 'CHEBI:57700', 'Subscore': {'query operon penalty': 250, 'distance average': 2.0, 'identity average': 76.431, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+OCCC(O)=O
+Modified chemicals list: 
+{'Chemical Name': '3-hydroxyisobutyrate', 'Score': 48.0741, 'ChEBI ID': 'CHEBI:11805', 'Subscore': {'query operon penalty': 250, 'distance average': 2.0, 'identity average': 76.431, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'CC(CO)C([O-])=O', 'Tanimoto with true ligand': 0.217}
+{'Chemical Name': '2-methyl-3-oxopropanoate', 'Score': 48.0741, 'ChEBI ID': 'CHEBI:57700', 'Subscore': {'query operon penalty': 250, 'distance average': 2.0, 'identity average': 76.431, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'CC(C=O)C([O-])=O', 'Tanimoto with true ligand': 0.12}

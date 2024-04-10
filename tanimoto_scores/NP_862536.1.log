@@ -1,0 +1,13 @@
+Query: NP_862536.1
+Chemicals: 
+{'Chemical Name': '1-carboxybiuret(1-)', 'Score': 86.45833333333334, 'ChEBI ID': 'CHEBI:142864', 'Subscore': {'query operon penalty': 0, 'distance average': 1.75, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.6666666666666666}}
+{'Chemical Name': 'cyanuric acid', 'Score': 81.16666666666666, 'ChEBI ID': 'CHEBI:38028', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.3333333333333333}}
+{'Chemical Name': '1,3-dicarboxyurea(2-)', 'Score': 80.41666666666666, 'ChEBI ID': 'CHEBI:142865', 'Subscore': {'query operon penalty': 0, 'distance average': 2.5, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.3333333333333333}}
+{'Chemical Name': 'urea-1-carboxylate', 'Score': 79.66666666666666, 'ChEBI ID': 'CHEBI:15832', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.3333333333333333}}
+true ligand smiles: 
+Oc1nc(O)nc(O)n1
+Modified chemicals list: 
+{'Chemical Name': '1-carboxybiuret(1-)', 'Score': 86.45833333333334, 'ChEBI ID': 'CHEBI:142864', 'Subscore': {'query operon penalty': 0, 'distance average': 1.75, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.6666666666666666}, 'SMILES': 'NC(NC(NC([O-])=O)=O)=O', 'Tanimoto with true ligand': 0.034}
+{'Chemical Name': 'cyanuric acid', 'Score': 81.16666666666666, 'ChEBI ID': 'CHEBI:38028', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.3333333333333333}, 'SMILES': 'Oc1nc(O)nc(O)n1', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': '1,3-dicarboxyurea(2-)', 'Score': 80.41666666666666, 'ChEBI ID': 'CHEBI:142865', 'Subscore': {'query operon penalty': 0, 'distance average': 2.5, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.3333333333333333}, 'SMILES': '[O-]C(NC(NC([O-])=O)=O)=O', 'Tanimoto with true ligand': 0.043}
+{'Chemical Name': 'urea-1-carboxylate', 'Score': 79.66666666666666, 'ChEBI ID': 'CHEBI:15832', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 100.0, 'coverage average': 96.5, 'frequency': 0.3333333333333333}, 'SMILES': 'NC(=O)NC([O-])=O', 'Tanimoto with true ligand': 0.043}

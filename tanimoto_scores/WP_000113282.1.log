@@ -1,0 +1,21 @@
+Query: WP_000113282.1
+Chemicals: 
+['S-formylglutathionate(1-)', 93.84755, 'CHEBI:57688', {'query operon penalty': 0, 'distance average': 3.5, 'identity average': 99.7705, 'coverage average': 99.625, 'frequency': 0.8}]
+['S-(hydroxymethyl)glutathione(1-)', 92.18291428571429, 'CHEBI:58758', {'query operon penalty': 0, 'distance average': 3.142857142857143, 'identity average': 99.73771428571429, 'coverage average': 99.57142857142857, 'frequency': 0.7}]
+['formate', 81.7, 'CHEBI:15740', {'query operon penalty': 0, 'distance average': 6.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.1}]
+['glutathionate(1-)', 81.7, 'CHEBI:57925', {'query operon penalty': 0, 'distance average': 6.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.1}]
+['beta-lactam', 57.695100000000004, 'CHEBI:35627', {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}]
+['substituted beta-amino acid zwitterion', 57.695100000000004, 'CHEBI:140347', {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}]
+['N-(5-phosphonato-beta-D-ribosyl)anthranilate', 56.695100000000004, 'CHEBI:18277', {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}]
+['1-(2-carboxylatophenylamino)-1-deoxy-D-ribulose 5-phosphate(3-)', 56.695100000000004, 'CHEBI:58613', {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}]
+true ligand smiles: 
+[H][C@@]12C[C@@]3([H])C(C(=O)c4c(O)cccc4[C@@]3(C)O)=C(O)[C@]1(O)C(=O)C(C(N)=O)=C(O)[C@H]2N(C)C
+Modified chemicals list: 
+['S-formylglutathionate(1-)', 93.84755, 'CHEBI:57688', {'query operon penalty': 0, 'distance average': 3.5, 'identity average': 99.7705, 'coverage average': 99.625, 'frequency': 0.8}, '[NH3+][C@@H](CCC(=O)N[C@@H](CSC=O)C(=O)NCC([O-])=O)C([O-])=O', 0.033]
+['S-(hydroxymethyl)glutathione(1-)', 92.18291428571429, 'CHEBI:58758', {'query operon penalty': 0, 'distance average': 3.142857142857143, 'identity average': 99.73771428571429, 'coverage average': 99.57142857142857, 'frequency': 0.7}, '[NH3+][C@@H](CCC(=O)N[C@@H](CSCO)C(=O)NCC([O-])=O)C([O-])=O', 0.033]
+['formate', 81.7, 'CHEBI:15740', {'query operon penalty': 0, 'distance average': 6.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.1}, '[H]C([O-])=O', 0.013]
+['glutathionate(1-)', 81.7, 'CHEBI:57925', {'query operon penalty': 0, 'distance average': 6.0, 'identity average': 100.0, 'coverage average': 100.0, 'frequency': 0.1}, '[NH3+][C@@H](CCC(=O)N[C@@H](CS)C(=O)NCC(=O)[O-])C(=O)[O-]', 0.035]
+['beta-lactam', 57.695100000000004, 'CHEBI:35627', {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}, 'C1(C(N(*)C1*)=O)*', 0.046]
+['substituted beta-amino acid zwitterion', 57.695100000000004, 'CHEBI:140347', {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}, 'C(C(=O)[O-])(*)C([NH2+]*)*', 0.045]
+['N-(5-phosphonato-beta-D-ribosyl)anthranilate', 56.695100000000004, 'CHEBI:18277', {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}, 'O[C@H]1[C@@H](O)[C@H](Nc2ccccc2C([O-])=O)O[C@@H]1COP([O-])([O-])=O', 0.083]
+['1-(2-carboxylatophenylamino)-1-deoxy-D-ribulose 5-phosphate(3-)', 56.695100000000004, 'CHEBI:58613', {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.541, 'coverage average': 100.0, 'frequency': 0.1}, 'O[C@H](COP([O-])([O-])=O)[C@@H](O)C(=O)CNc1ccccc1C([O-])=O', 0.067]

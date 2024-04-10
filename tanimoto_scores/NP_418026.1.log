@@ -1,0 +1,11 @@
+Query: NP_418026.1
+Chemicals: 
+{'Chemical Name': 'alpha-D-xylose', 'Score': 94.25954166666668, 'ChEBI ID': 'CHEBI:28518', 'Subscore': {'query operon penalty': 0, 'distance average': 4.166666666666667, 'identity average': 99.76625000000001, 'coverage average': 100.0, 'frequency': 0.8}}
+{'Chemical Name': 'alpha-D-xylulofuranose', 'Score': 94.25954166666668, 'ChEBI ID': 'CHEBI:188998', 'Subscore': {'query operon penalty': 0, 'distance average': 4.166666666666667, 'identity average': 99.76625000000001, 'coverage average': 100.0, 'frequency': 0.8}}
+{'Chemical Name': 'D-xylopyranose', 'Score': 85.213, 'ChEBI ID': 'CHEBI:53455', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.83, 'coverage average': 100.0, 'frequency': 0.2}}
+true ligand smiles: 
+O[C@@H]1COC(O)[C@H](O)[C@H]1O
+Modified chemicals list: 
+{'Chemical Name': 'alpha-D-xylose', 'Score': 94.25954166666668, 'ChEBI ID': 'CHEBI:28518', 'Subscore': {'query operon penalty': 0, 'distance average': 4.166666666666667, 'identity average': 99.76625000000001, 'coverage average': 100.0, 'frequency': 0.8}, 'SMILES': 'O[C@@H]1CO[C@H](O)[C@H](O)[C@H]1O', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'alpha-D-xylulofuranose', 'Score': 94.25954166666668, 'ChEBI ID': 'CHEBI:188998', 'Subscore': {'query operon penalty': 0, 'distance average': 4.166666666666667, 'identity average': 99.76625000000001, 'coverage average': 100.0, 'frequency': 0.8}, 'SMILES': 'O1[C@](O)([C@@H](O)[C@H](O)C1)CO', 'Tanimoto with true ligand': 0.194}
+{'Chemical Name': 'D-xylopyranose', 'Score': 85.213, 'ChEBI ID': 'CHEBI:53455', 'Subscore': {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 99.83, 'coverage average': 100.0, 'frequency': 0.2}, 'SMILES': 'O[C@@H]1COC(O)[C@H](O)[C@H]1O', 'Tanimoto with true ligand': 1.0}

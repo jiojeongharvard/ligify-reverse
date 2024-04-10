@@ -1,0 +1,9 @@
+Query: WP_011616377.1
+Chemicals: 
+['N(6)-[(R)-dihydrolipoyl]-L-lysine residue', 97.88999999999999, 'CHEBI:83100', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.89999999999999, 'coverage average': 100.0, 'frequency': 1.0}]
+['N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysine residue', 97.88999999999999, 'CHEBI:83111', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.89999999999999, 'coverage average': 100.0, 'frequency': 1.0}]
+true ligand smiles: 
+C[C@@H](O)C(C)=O
+Modified chemicals list: 
+['N(6)-[(R)-dihydrolipoyl]-L-lysine residue', 97.88999999999999, 'CHEBI:83100', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.89999999999999, 'coverage average': 100.0, 'frequency': 1.0}, 'SCC[C@H](S)CCCCC(=O)NCCCC[C@H](N-*)C(-*)=O', 0.091]
+['N(6)-[(R)-S(8)-acetyldihydrolipoyl]-L-lysine residue', 97.88999999999999, 'CHEBI:83111', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.89999999999999, 'coverage average': 100.0, 'frequency': 1.0}, 'CC(=O)SCC[C@H](S)CCCCC(=O)NCCCC[C@H](N-*)C(-*)=O', 0.115]

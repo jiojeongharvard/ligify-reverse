@@ -1,0 +1,13 @@
+Query: AAA25771.1
+Chemicals: 
+{'Chemical Name': '4-oxohex-2-enedioate', 'Score': 63.87800000000001, 'ChEBI ID': 'CHEBI:12040', 'Subscore': {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 98.98, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': '4-carboxylatomethylenebut-2-en-4-olide', 'Score': 63.87800000000001, 'ChEBI ID': 'CHEBI:57263', 'Subscore': {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 98.98, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': '3-oxoadipate(2-)', 'Score': 63.251999999999995, 'ChEBI ID': 'CHEBI:15775', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.32, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': 'maleylacetate', 'Score': 63.251999999999995, 'ChEBI ID': 'CHEBI:16468', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.32, 'coverage average': 100.0, 'frequency': 0.5}}
+true ligand smiles: 
+[O-]C(=O)\C=C/C=C(/Cl)C([O-])=O
+Modified chemicals list: 
+{'Chemical Name': '4-oxohex-2-enedioate', 'Score': 63.87800000000001, 'ChEBI ID': 'CHEBI:12040', 'Subscore': {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 98.98, 'coverage average': 100.0, 'frequency': 0.5}, 'SMILES': '[H]C(=C([H])C(=O)CC([O-])=O)C([O-])=O', 'Tanimoto with true ligand': 0.243}
+{'Chemical Name': '4-carboxylatomethylenebut-2-en-4-olide', 'Score': 63.87800000000001, 'ChEBI ID': 'CHEBI:57263', 'Subscore': {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 98.98, 'coverage average': 100.0, 'frequency': 0.5}, 'SMILES': '[H]C(C([O-])=O)=C1OC(=O)C=C1', 'Tanimoto with true ligand': 0.159}
+{'Chemical Name': '3-oxoadipate(2-)', 'Score': 63.251999999999995, 'ChEBI ID': 'CHEBI:15775', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.32, 'coverage average': 100.0, 'frequency': 0.5}, 'SMILES': '[O-]C(=O)CCC(=O)CC([O-])=O', 'Tanimoto with true ligand': 0.128}
+{'Chemical Name': 'maleylacetate', 'Score': 63.251999999999995, 'ChEBI ID': 'CHEBI:16468', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.32, 'coverage average': 100.0, 'frequency': 0.5}, 'SMILES': '[O-]C(=O)CC(=O)\\C=C/C([O-])=O', 'Tanimoto with true ligand': 0.243}

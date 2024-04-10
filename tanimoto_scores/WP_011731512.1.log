@@ -1,0 +1,15 @@
+Query: WP_011731512.1
+Chemicals: 
+{'Chemical Name': 'sn-glycerol 3-phosphate(2-)', 'Score': 96.53466666666668, 'ChEBI ID': 'CHEBI:57597', 'Subscore': {'query operon penalty': 0, 'distance average': 1.9333333333333333, 'identity average': 99.54666666666668, 'coverage average': 99.0, 'frequency': 1.0}}
+{'Chemical Name': 'glycerol', 'Score': 91.99142121212121, 'ChEBI ID': 'CHEBI:17754', 'Subscore': {'query operon penalty': 0, 'distance average': 1.5454545454545454, 'identity average': 99.52663636363637, 'coverage average': 98.9090909090909, 'frequency': 0.7333333333333333}}
+{'Chemical Name': 'hydroquinones', 'Score': 84.09525833333335, 'ChEBI ID': 'CHEBI:24646', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 99.60175000000001, 'coverage average': 99.25, 'frequency': 0.26666666666666666}}
+{'Chemical Name': 'glycerone phosphate(2-)', 'Score': 84.09525833333335, 'ChEBI ID': 'CHEBI:57642', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 99.60175000000001, 'coverage average': 99.25, 'frequency': 0.26666666666666666}}
+{'Chemical Name': '1,4-benzoquinones', 'Score': 84.09525833333335, 'ChEBI ID': 'CHEBI:132124', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 99.60175000000001, 'coverage average': 99.25, 'frequency': 0.26666666666666666}}
+true ligand smiles: 
+OC[C@@H](O)COP([O-])([O-])=O
+Modified chemicals list: 
+{'Chemical Name': 'sn-glycerol 3-phosphate(2-)', 'Score': 96.53466666666668, 'ChEBI ID': 'CHEBI:57597', 'Subscore': {'query operon penalty': 0, 'distance average': 1.9333333333333333, 'identity average': 99.54666666666668, 'coverage average': 99.0, 'frequency': 1.0}, 'SMILES': 'OC[C@@H](O)COP([O-])([O-])=O', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'glycerol', 'Score': 91.99142121212121, 'ChEBI ID': 'CHEBI:17754', 'Subscore': {'query operon penalty': 0, 'distance average': 1.5454545454545454, 'identity average': 99.52663636363637, 'coverage average': 98.9090909090909, 'frequency': 0.7333333333333333}, 'SMILES': 'OCC(O)CO', 'Tanimoto with true ligand': 0.32}
+{'Chemical Name': 'hydroquinones', 'Score': 84.09525833333335, 'ChEBI ID': 'CHEBI:24646', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 99.60175000000001, 'coverage average': 99.25, 'frequency': 0.26666666666666666}, 'SMILES': 'OC1=C(*)C(*)=C(O)C(*)=C1*', 'Tanimoto with true ligand': 0.029}
+{'Chemical Name': 'glycerone phosphate(2-)', 'Score': 84.09525833333335, 'ChEBI ID': 'CHEBI:57642', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 99.60175000000001, 'coverage average': 99.25, 'frequency': 0.26666666666666666}, 'SMILES': 'C(CO)(COP([O-])(=O)[O-])=O', 'Tanimoto with true ligand': 0.343}
+{'Chemical Name': '1,4-benzoquinones', 'Score': 84.09525833333335, 'ChEBI ID': 'CHEBI:132124', 'Subscore': {'query operon penalty': 0, 'distance average': 3.0, 'identity average': 99.60175000000001, 'coverage average': 99.25, 'frequency': 0.26666666666666666}, 'SMILES': 'O=C1C(*)=C(*)C(=O)C(*)=C1*', 'Tanimoto with true ligand': 0.029}

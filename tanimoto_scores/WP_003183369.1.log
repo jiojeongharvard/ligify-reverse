@@ -1,0 +1,21 @@
+Query: WP_003183369.1
+Chemicals: 
+['(6R)-5,10-methenyltetrahydrofolate', 85.07473333333333, 'CHEBI:57455', {'query operon penalty': 0, 'distance average': 6.083333333333333, 'identity average': 96.92399999999999, 'coverage average': 100.0, 'frequency': 0.5}]
+['pyruvate', 83.86341111111112, 'CHEBI:15361', {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 95.89855555555556, 'coverage average': 100.0, 'frequency': 0.375}]
+['1-deoxy-D-xylulose 5-phosphate(2-)', 83.86341111111112, 'CHEBI:57792', {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 95.89855555555556, 'coverage average': 100.0, 'frequency': 0.375}]
+['D-glyceraldehyde 3-phosphate(2-)', 83.86341111111112, 'CHEBI:59776', {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 95.89855555555556, 'coverage average': 100.0, 'frequency': 0.375}]
+['L-serine zwitterion', 81.88690000000001, 'CHEBI:33384', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.32900000000001, 'coverage average': 100.0, 'frequency': 0.125}]
+['O-acetyl-L-serine zwitterion', 81.88690000000001, 'CHEBI:58340', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.32900000000001, 'coverage average': 100.0, 'frequency': 0.125}]
+['(6R)-5,10-methylenetetrahydrofolate(2-)', 81.04761666666668, 'CHEBI:15636', {'query operon penalty': 0, 'distance average': 6.0, 'identity average': 99.6645, 'coverage average': 100.0, 'frequency': 0.08333333333333333}]
+['(6R)-10-formyltetrahydrofolate(2-)', 58.04682333333335, 'CHEBI:195366', {'query operon penalty': 250, 'distance average': 6.1, 'identity average': 96.37590000000002, 'coverage average': 100.0, 'frequency': 0.4166666666666667}]
+true ligand smiles: 
+N[C@@H](CCCNC(N)=N)C(O)=O
+Modified chemicals list: 
+['(6R)-5,10-methenyltetrahydrofolate', 85.07473333333333, 'CHEBI:57455', {'query operon penalty': 0, 'distance average': 6.083333333333333, 'identity average': 96.92399999999999, 'coverage average': 100.0, 'frequency': 0.5}, '[H][C@]12CNc3nc(N)[nH]c(=O)c3[N+]1=CN(C2)c1ccc(cc1)C(=O)N[C@@H](CCC([O-])=O)C([O-])=O', 0.073]
+['pyruvate', 83.86341111111112, 'CHEBI:15361', {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 95.89855555555556, 'coverage average': 100.0, 'frequency': 0.375}, 'CC(=O)C([O-])=O', 0.079]
+['1-deoxy-D-xylulose 5-phosphate(2-)', 83.86341111111112, 'CHEBI:57792', {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 95.89855555555556, 'coverage average': 100.0, 'frequency': 0.375}, 'CC(=O)[C@@H](O)[C@H](O)COP([O-])([O-])=O', 0.091]
+['D-glyceraldehyde 3-phosphate(2-)', 83.86341111111112, 'CHEBI:59776', {'query operon penalty': 0, 'distance average': 2.0, 'identity average': 95.89855555555556, 'coverage average': 100.0, 'frequency': 0.375}, '[H]C(=O)[C@H](O)COP([O-])([O-])=O', 0.077]
+['L-serine zwitterion', 81.88690000000001, 'CHEBI:33384', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.32900000000001, 'coverage average': 100.0, 'frequency': 0.125}, '[NH3+][C@@H](CO)C([O-])=O', 0.119]
+['O-acetyl-L-serine zwitterion', 81.88690000000001, 'CHEBI:58340', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.32900000000001, 'coverage average': 100.0, 'frequency': 0.125}, 'CC(=O)OC[C@H]([NH3+])C([O-])=O', 0.098]
+['(6R)-5,10-methylenetetrahydrofolate(2-)', 81.04761666666668, 'CHEBI:15636', {'query operon penalty': 0, 'distance average': 6.0, 'identity average': 99.6645, 'coverage average': 100.0, 'frequency': 0.08333333333333333}, '[H][C@]12CNc3nc(N)[nH]c(=O)c3N1CN(C2)c1ccc(cc1)C(=O)N[C@@H](CCC([O-])=O)C([O-])=O', 0.073]
+['(6R)-10-formyltetrahydrofolate(2-)', 58.04682333333335, 'CHEBI:195366', {'query operon penalty': 250, 'distance average': 6.1, 'identity average': 96.37590000000002, 'coverage average': 100.0, 'frequency': 0.4166666666666667}, '[H]C(=O)N(C[C@H]1CNC2=C(N1)C(=O)NC(N)=N2)C1=CC=C(C=C1)C(=O)N[C@@H](CCC([O-])=O)C([O-])=O', 0.073]

@@ -1,0 +1,15 @@
+Query: NP_391277.1
+Chemicals: 
+{'Chemical Name': '3-phosphonato-D-glycerate(3-)', 'Score': 64.25493333333335, 'ChEBI ID': 'CHEBI:58272', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.6666666666666666}}
+{'Chemical Name': '3-phosphonato-D-glyceroyl phosphate(4-)', 'Score': 59.08826666666668, 'ChEBI ID': 'CHEBI:57604', 'Subscore': {'query operon penalty': 250, 'distance average': 4.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+{'Chemical Name': 'glycerone phosphate(2-)', 'Score': 58.58826666666668, 'ChEBI ID': 'CHEBI:57642', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+{'Chemical Name': 'D-glyceraldehyde 3-phosphate(2-)', 'Score': 58.58826666666668, 'ChEBI ID': 'CHEBI:59776', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+{'Chemical Name': '2-phosphonato-D-glycerate(3-)', 'Score': 58.08826666666668, 'ChEBI ID': 'CHEBI:58289', 'Subscore': {'query operon penalty': 250, 'distance average': 6.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}}
+true ligand smiles: 
+O[C@H]1COC(O)[C@H](O)[C@H]1O
+Modified chemicals list: 
+{'Chemical Name': '3-phosphonato-D-glycerate(3-)', 'Score': 64.25493333333335, 'ChEBI ID': 'CHEBI:58272', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.6666666666666666}, 'SMILES': 'O[C@H](COP([O-])([O-])=O)C([O-])=O', 'Tanimoto with true ligand': 0.023}
+{'Chemical Name': '3-phosphonato-D-glyceroyl phosphate(4-)', 'Score': 59.08826666666668, 'ChEBI ID': 'CHEBI:57604', 'Subscore': {'query operon penalty': 250, 'distance average': 4.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': 'O[C@H](COP([O-])([O-])=O)C(=O)OP([O-])([O-])=O', 'Tanimoto with true ligand': 0.021}
+{'Chemical Name': 'glycerone phosphate(2-)', 'Score': 58.58826666666668, 'ChEBI ID': 'CHEBI:57642', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': 'C(CO)(COP([O-])(=O)[O-])=O', 'Tanimoto with true ligand': 0.024}
+{'Chemical Name': 'D-glyceraldehyde 3-phosphate(2-)', 'Score': 58.58826666666668, 'ChEBI ID': 'CHEBI:59776', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': '[H]C(=O)[C@H](O)COP([O-])([O-])=O', 'Tanimoto with true ligand': 0.023}
+{'Chemical Name': '2-phosphonato-D-glycerate(3-)', 'Score': 58.08826666666668, 'ChEBI ID': 'CHEBI:58289', 'Subscore': {'query operon penalty': 250, 'distance average': 6.0, 'identity average': 97.656, 'coverage average': 100.0, 'frequency': 0.3333333333333333}, 'SMILES': 'OC[C@@H](OP([O-])([O-])=O)C([O-])=O', 'Tanimoto with true ligand': 0.024}

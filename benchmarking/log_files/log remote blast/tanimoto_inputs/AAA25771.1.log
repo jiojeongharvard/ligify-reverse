@@ -1,0 +1,51 @@
+Query: AAA25771.1
+This is how the query's operon looks like:
+{'operon': [{'description': 'chlorocatechol operon activator', 'accession': 'AAA25771.1', 'direction': '+', 'start': 173, 'stop': 1057}, {'description': 'chlorocatechol operon activator', 'accession': 'AAA25771.1', 'direction': '+', 'start': 173, 'stop': 1057}], 'enzyme_index': 1, 'enzyme_direction': '+', 'operon_seq': {'gene0fwd': '', 'overlap0': 'ATGGAATTTCGGCAGCTTCGCTATTTCATCGCGGTCGCAGAAGAGGGAAATATCGGTGCTGCGGCAAGACGCCTGCATATTTCCCAGCCGCCCATTACCCGCCAAATACAGGCCCTGGAACAGGATCTCGGCGTGGTGCTGTTTGAACGCACGCACCGCGGCGTCGAATTGACGGCAGCGGGTACAACATTTTTAGAGGATGCCAGGCGCCTACTGCACGTTACCGAGATCTCAAGGGTGAGATCACGTGCAGCATCGCGCGGTGAAATCGGGGAATTGCGCGTCGCCTATTTCGGAACCGTCGTTTTGCATACGCTACCGCTACTGCTGCGGCAACTCTTGTCGGTTGCTCCCTCGGCAACTGTGTCCTTGACGCAGATGAGCAAGAACCGCCAGATTGAAGCGCTGGACGCTGGCACCATCGATATCGGGTTCGGGCGTTTCTACCCCTATCAGGAGGGTGTAGTTGTCCGAAACGTAACCAATGAGAGGCTATTTCTGGGTGCGCAAAAGTCGCGCGCTCGCTCGTTTGGTGAGCAAGTTCATTGCAGCGCGCTTCGTAACGAGCCCTTCATCCTGTTCCCGCGAGAAGGACGCCCCAGTTTCGCAGACGAAGTCATCGGCGTATTCAAAAACGCGCGAGTGGAGCCAAAGGTTGTCGCCATAGTTGAAGACGTCAATGCAGCCATGGCTCTGGCGTTGGCCGGCGTCGGCGTGACAATTGTTCCCGAGACAGTAGCCATGATTTCGTGGCCTGACTTCGGCTTCACTGAACTCGTGGGCTCCAAGGCCACTGTACCGGTCAGTTGTATCTACCGTCACGATCACATTGCGCCGATTCTGAAAACATTCTTGAACTTGCTACCTATTCGAGAATCGCAATAG', 'gene1fwd': ''}, 'promoter': None, 'reassembly_match': True, 'genome': 'L06464.1'}
+________________________________
+This is how the dataframe of homologs looks like:
+          NCBI Id  Identity  Coverage                                             Operon
+1  WP_012248462.1    99.660     100.0  {'operon': [{'alias': 'BPET_RS07760', 'descrip...
+2  WP_011489352.1    99.320     100.0  {'operon': [{'alias': 'BXE_RS16295', 'descript...
+3      AAC69473.1    98.980     100.0  {'operon': [{'description': 'ATP-binding prote...
+4  WP_021224465.1    99.320     100.0  {'operon': [{'alias': 'RLDS_RS56630', 'descrip...
+5      ABQ23433.1    98.980     100.0  {'operon': [{'description': 'dienelactone hydr...
+6  WP_081256096.1    96.259     100.0  {'operon': [{'alias': 'A6P55_RS25470', 'descri...
+9    MBO9327758.1    73.958      97.0  {'operon': [{'alias': 'GHR37_01295', 'descript...
+________________________________
+This contains the description of all enzymes (excluding regulators) in the operons
+['LysE family transporter', 'chlorocatechol 1,2-dioxygenase', 'muconate cycloisomerase family protein', 'tripartite tricarboxylate transporter substrate binding protein', 'dienelactone hydrolase family protein', 'maleylacetate reductase', 'anthranilate 1,2-dioxygenase large subunit AndAc', 'LysE family transporter', 'chlorocatechol 1,2-dioxygenase', 'muconate cycloisomerase family protein', 'tripartite tricarboxylate transporter substrate binding protein', 'dienelactone hydrolase family protein', 'maleylacetate reductase', 'ATP-binding protein', 'chlorocatechol-1,2-dioxygenase', 'chloromuconate cycloisomerase', 'unknown', 'dienelactone hydrolase', 'maleylacetate reductase', 'unknown', 'LysE family transporter', 'chlorocatechol 1,2-dioxygenase', 'muconate cycloisomerase family protein', 'tripartite tricarboxylate transporter substrate binding protein', 'dienelactone hydrolase family protein', 'maleylacetate reductase', 'dienelactone hydrolase', 'chlorocatechol 1,2-dioxygenase', 'chloromuconate cycloisomerase', 'ClcC', 'dienelactone hydrolase', 'maleylacetate reductase', 'dienelactone hydrolase family protein', 'tripartite tricarboxylate transporter substrate-binding protein', 'tripartite tricarboxylate transporter substrate-binding protein', 'muconate cycloisomerase family protein', 'chlorocatechol 1,2-dioxygenase', 'hypothetical protein', 'chloromuconate cycloisomerase', 'tripartite tricarboxylate transporter substrate binding protein', 'dienelactone hydrolase family protein']
+________________________________
+Phrase frequencies: 
+{'chlorocatechol 1,2-dioxygenase': 5, 'dienelactone hydrolase family protein': 5, 'maleylacetate reductase': 5, 'muconate cycloisomerase family protein': 4, 'tripartite tricarboxylate transporter substrate binding protein': 4, 'LysE family transporter': 3, 'chloromuconate cycloisomerase': 3, 'dienelactone hydrolase': 3, 'unknown': 2, 'tripartite tricarboxylate transporter substrate-binding protein': 2, 'anthranilate 1,2-dioxygenase large subunit AndAc': 1, 'ATP-binding protein': 1, 'chlorocatechol-1,2-dioxygenase': 1, 'ClcC': 1, 'hypothetical protein': 1}
+________________________________
+Word frequencies: 
+{'protein': 17, 'family': 12, 'transporter': 9, 'dienelactone': 8, 'hydrolase': 8, 'cycloisomerase': 7, '1,2-dioxygenase': 6, 'tripartite': 6, 'tricarboxylate': 6, 'chlorocatechol': 5, 'maleylacetate': 5, 'reductase': 5, 'muconate': 4, 'substrate': 4, 'binding': 4, 'LysE': 3, 'chloromuconate': 3, 'unknown': 2, 'substrate-binding': 2, 'anthranilate': 1, 'large': 1, 'subunit': 1, 'AndAc': 1, 'ATP-binding': 1, 'chlorocatechol-1,2-dioxygenase': 1, 'ClcC': 1, 'hypothetical': 1}
+________________________________
+This is how the chemicals are added to the genes in the operon:
+________________________________
+This is how the chemicals are added to the genes in the homolog operons:
+[{'name': '3-oxoadipate(2-)', 'ChEBI ID': 'CHEBI:15775'}, {'name': 'maleylacetate', 'ChEBI ID': 'CHEBI:16468'}]
+[{'name': '3-oxoadipate(2-)', 'ChEBI ID': 'CHEBI:15775'}, {'name': 'maleylacetate', 'ChEBI ID': 'CHEBI:16468'}]
+[{'name': '4-oxohex-2-enedioate', 'ChEBI ID': 'CHEBI:12040'}, {'name': '4-carboxylatomethylenebut-2-en-4-olide', 'ChEBI ID': 'CHEBI:57263'}]
+[{'name': '3-oxoadipate(2-)', 'ChEBI ID': 'CHEBI:15775'}, {'name': 'maleylacetate', 'ChEBI ID': 'CHEBI:16468'}]
+[{'name': '4-oxohex-2-enedioate', 'ChEBI ID': 'CHEBI:12040'}, {'name': '4-carboxylatomethylenebut-2-en-4-olide', 'ChEBI ID': 'CHEBI:57263'}]
+[{'name': '4-oxohex-2-enedioate', 'ChEBI ID': 'CHEBI:12040'}, {'name': '4-carboxylatomethylenebut-2-en-4-olide', 'ChEBI ID': 'CHEBI:57263'}]
+________________________________
+These are all the chemicals in the operons:
+{'CHEBI:15775': [{'distance_from_reg': 5, 'identity': 99.66, 'coverage': 100.0}, {'distance_from_reg': 5, 'identity': 99.32, 'coverage': 100.0}, {'distance_from_reg': 5, 'identity': 98.98, 'coverage': 100.0}], 'CHEBI:16468': [{'distance_from_reg': 5, 'identity': 99.66, 'coverage': 100.0}, {'distance_from_reg': 5, 'identity': 99.32, 'coverage': 100.0}, {'distance_from_reg': 5, 'identity': 98.98, 'coverage': 100.0}], 'CHEBI:12040': [{'distance_from_reg': 4, 'identity': 98.98, 'coverage': 100.0}, {'distance_from_reg': 1, 'identity': 98.98, 'coverage': 100.0}, {'distance_from_reg': 4, 'identity': 98.98, 'coverage': 100.0}], 'CHEBI:57263': [{'distance_from_reg': 4, 'identity': 98.98, 'coverage': 100.0}, {'distance_from_reg': 1, 'identity': 98.98, 'coverage': 100.0}, {'distance_from_reg': 4, 'identity': 98.98, 'coverage': 100.0}]}
+________________________________
+The total number of enzymes that have chemicals found in the query operon + all homolog operons is: 6
+________________________________
+These are all the chemicals ranked:
+{'Chemical Name': '4-oxohex-2-enedioate', 'Score': 63.87800000000001, 'ChEBI ID': 'CHEBI:12040', 'Subscore': {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 98.98, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': '4-carboxylatomethylenebut-2-en-4-olide', 'Score': 63.87800000000001, 'ChEBI ID': 'CHEBI:57263', 'Subscore': {'query operon penalty': 250, 'distance average': 3.0, 'identity average': 98.98, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': '3-oxoadipate(2-)', 'Score': 63.251999999999995, 'ChEBI ID': 'CHEBI:15775', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.32, 'coverage average': 100.0, 'frequency': 0.5}}
+{'Chemical Name': 'maleylacetate', 'Score': 63.251999999999995, 'ChEBI ID': 'CHEBI:16468', 'Subscore': {'query operon penalty': 250, 'distance average': 5.0, 'identity average': 99.32, 'coverage average': 100.0, 'frequency': 0.5}}
+________________________________
+This is the correct chemical for the query: 
+2-chloromuconate
+________________________________
+These are weights used for ranking:
+{'distance': 5, 'identity': 11, 'coverage': 20, 'frequency': 170, 'max input operon penalty': 250}
+________________________________
+The Runtime of query: 0:19:34.579768

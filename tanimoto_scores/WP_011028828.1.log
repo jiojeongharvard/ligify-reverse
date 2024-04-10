@@ -1,0 +1,11 @@
+Query: WP_011028828.1
+Chemicals: 
+{'Chemical Name': 'D-erythrose 4-phosphate(2-)', 'Score': 98.94876250000002, 'ChEBI ID': 'CHEBI:16897', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.49887500000001, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate', 'Score': 98.94876250000002, 'ChEBI ID': 'CHEBI:58394', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.49887500000001, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'phosphonatoenolpyruvate', 'Score': 98.94876250000002, 'ChEBI ID': 'CHEBI:58702', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.49887500000001, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+Oc1ccc(cc1)C([O-])=O
+Modified chemicals list: 
+{'Chemical Name': 'D-erythrose 4-phosphate(2-)', 'Score': 98.94876250000002, 'ChEBI ID': 'CHEBI:16897', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.49887500000001, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[H]C(=O)[C@H](O)[C@H](O)COP([O-])([O-])=O', 'Tanimoto with true ligand': 0.065}
+{'Chemical Name': '7-phospho-2-dehydro-3-deoxy-D-arabino-heptonate', 'Score': 98.94876250000002, 'ChEBI ID': 'CHEBI:58394', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.49887500000001, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'O[C@H](COP([O-])([O-])=O)[C@@H](O)[C@H](O)CC(=O)C([O-])=O', 'Tanimoto with true ligand': 0.122}
+{'Chemical Name': 'phosphonatoenolpyruvate', 'Score': 98.94876250000002, 'ChEBI ID': 'CHEBI:58702', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.49887500000001, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[O-]C(=O)C(=C)OP([O-])([O-])=O', 'Tanimoto with true ligand': 0.171}

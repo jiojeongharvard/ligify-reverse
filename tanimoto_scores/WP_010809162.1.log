@@ -1,0 +1,13 @@
+Query: WP_010809162.1
+Chemicals: 
+['adenine', 90.26903333333334, 'CHEBI:16708', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.15366666666667, 'coverage average': 100.0, 'frequency': 0.6}]
+['hypoxanthine', 90.26903333333334, 'CHEBI:17368', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.15366666666667, 'coverage average': 100.0, 'frequency': 0.6}]
+['guanine', 86.42715000000001, 'CHEBI:16235', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.2065, 'coverage average': 100.0, 'frequency': 0.4}]
+['9H-xanthine', 86.42715000000001, 'CHEBI:17712', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.2065, 'coverage average': 100.0, 'frequency': 0.4}]
+true ligand smiles: 
+C1=NC2=C(N1)C(=O)NC(=O)N2
+Modified chemicals list: 
+['adenine', 90.26903333333334, 'CHEBI:16708', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.15366666666667, 'coverage average': 100.0, 'frequency': 0.6}, 'Nc1ncnc2[nH]cnc12', 0.173]
+['hypoxanthine', 90.26903333333334, 'CHEBI:17368', {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.15366666666667, 'coverage average': 100.0, 'frequency': 0.6}, 'O=c1[nH]cnc2nc[nH]c12', 0.295]
+['guanine', 86.42715000000001, 'CHEBI:16235', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.2065, 'coverage average': 100.0, 'frequency': 0.4}, 'C12=C(N=C(NC1=O)N)NC=N2', 0.241]
+['9H-xanthine', 86.42715000000001, 'CHEBI:17712', {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.2065, 'coverage average': 100.0, 'frequency': 0.4}, 'O=c1[nH]c2[nH]cnc2c(=O)[nH]1', 0.333]

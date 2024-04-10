@@ -1,0 +1,13 @@
+Query: NP_418209.1
+Chemicals: 
+{'Chemical Name': 'D-ribofuranose', 'Score': 91.70240952380955, 'ChEBI ID': 'CHEBI:47013', 'Subscore': {'query operon penalty': 0, 'distance average': 1.8571428571428572, 'identity average': 99.74028571428575, 'coverage average': 100.0, 'frequency': 0.5833333333333334}}
+{'Chemical Name': 'D-ribofuranose 5-phosphate(2-)', 'Score': 89.28336333333334, 'ChEBI ID': 'CHEBI:78346', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.7273, 'coverage average': 100.0, 'frequency': 0.4166666666666667}}
+{'Chemical Name': 'beta-D-ribopyranose', 'Score': 87.28336333333334, 'ChEBI ID': 'CHEBI:27476', 'Subscore': {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.7273, 'coverage average': 100.0, 'frequency': 0.4166666666666667}}
+{'Chemical Name': 'beta-D-ribose', 'Score': 87.28336333333334, 'ChEBI ID': 'CHEBI:47002', 'Subscore': {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.7273, 'coverage average': 100.0, 'frequency': 0.4166666666666667}}
+true ligand smiles: 
+OC[C@H]1OC(O)[C@H](O)[C@@H]1O
+Modified chemicals list: 
+{'Chemical Name': 'D-ribofuranose', 'Score': 91.70240952380955, 'ChEBI ID': 'CHEBI:47013', 'Subscore': {'query operon penalty': 0, 'distance average': 1.8571428571428572, 'identity average': 99.74028571428575, 'coverage average': 100.0, 'frequency': 0.5833333333333334}, 'SMILES': 'OC[C@H]1OC(O)[C@H](O)[C@@H]1O', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': 'D-ribofuranose 5-phosphate(2-)', 'Score': 89.28336333333334, 'ChEBI ID': 'CHEBI:78346', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.7273, 'coverage average': 100.0, 'frequency': 0.4166666666666667}, 'SMILES': 'OC1O[C@H](COP([O-])([O-])=O)[C@@H](O)[C@H]1O', 'Tanimoto with true ligand': 0.4}
+{'Chemical Name': 'beta-D-ribopyranose', 'Score': 87.28336333333334, 'ChEBI ID': 'CHEBI:27476', 'Subscore': {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.7273, 'coverage average': 100.0, 'frequency': 0.4166666666666667}, 'SMILES': 'O[C@@H]1CO[C@@H](O)[C@H](O)[C@@H]1O', 'Tanimoto with true ligand': 0.226}
+{'Chemical Name': 'beta-D-ribose', 'Score': 87.28336333333334, 'ChEBI ID': 'CHEBI:47002', 'Subscore': {'query operon penalty': 0, 'distance average': 5.0, 'identity average': 99.7273, 'coverage average': 100.0, 'frequency': 0.4166666666666667}, 'SMILES': 'OC[C@H]1O[C@@H](O)[C@H](O)[C@@H]1O', 'Tanimoto with true ligand': 1.0}

@@ -1,0 +1,9 @@
+Query: WP_004926797.1
+Chemicals: 
+{'Chemical Name': 'L-serine zwitterion', 'Score': 98.90086666666666, 'ChEBI ID': 'CHEBI:33384', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.45533333333333, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': 'O-acetyl-L-serine zwitterion', 'Score': 98.90086666666666, 'ChEBI ID': 'CHEBI:58340', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.45533333333333, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+[O-]C(=O)CC([O-])=O
+Modified chemicals list: 
+{'Chemical Name': 'L-serine zwitterion', 'Score': 98.90086666666666, 'ChEBI ID': 'CHEBI:33384', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.45533333333333, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[NH3+][C@@H](CO)C([O-])=O', 'Tanimoto with true ligand': 0.3}
+{'Chemical Name': 'O-acetyl-L-serine zwitterion', 'Score': 98.90086666666666, 'ChEBI ID': 'CHEBI:58340', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.45533333333333, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'CC(=O)OC[C@H]([NH3+])C([O-])=O', 'Tanimoto with true ligand': 0.207}

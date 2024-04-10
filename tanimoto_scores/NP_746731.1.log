@@ -1,0 +1,9 @@
+Query: NP_746731.1
+Chemicals: 
+{'Chemical Name': 'homogentisate', 'Score': 98.07044000000002, 'ChEBI ID': 'CHEBI:16169', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.70040000000002, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '4-maleylacetoacetate', 'Score': 98.07044000000002, 'ChEBI ID': 'CHEBI:17105', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.70040000000002, 'coverage average': 100.0, 'frequency': 1.0}}
+true ligand smiles: 
+Oc1ccc(O)c(CC([O-])=O)c1
+Modified chemicals list: 
+{'Chemical Name': 'homogentisate', 'Score': 98.07044000000002, 'ChEBI ID': 'CHEBI:16169', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.70040000000002, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': 'Oc1ccc(O)c(CC([O-])=O)c1', 'Tanimoto with true ligand': 1.0}
+{'Chemical Name': '4-maleylacetoacetate', 'Score': 98.07044000000002, 'ChEBI ID': 'CHEBI:17105', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 98.70040000000002, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '[O-]C(=O)CC(=O)CC(=O)\\C=C/C([O-])=O', 'Tanimoto with true ligand': 0.16}

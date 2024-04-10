@@ -1,0 +1,13 @@
+Query: WP_012273540.1
+Chemicals: 
+{'Chemical Name': 'N(6)-[(R)-lipoyl]-L-lysine residue', 'Score': 98.17713846153846, 'ChEBI ID': 'CHEBI:83099', 'Subscore': {'query operon penalty': 0, 'distance average': 2.3846153846153846, 'identity average': 99.42676923076922, 'coverage average': 100.0, 'frequency': 1.0}}
+{'Chemical Name': '3-methyl-2-oxobutanoate', 'Score': 91.06833186813189, 'ChEBI ID': 'CHEBI:11851', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.46771428571431, 'coverage average': 100.0, 'frequency': 0.5384615384615384}}
+{'Chemical Name': 'N(6)-[(R)-S(8)-isobutyryldihydrolipoyl]-L-lysine residue', 'Score': 91.06833186813189, 'ChEBI ID': 'CHEBI:83142', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.46771428571431, 'coverage average': 100.0, 'frequency': 0.5384615384615384}}
+{'Chemical Name': 'N(6)-[(R)-dihydrolipoyl]-L-lysine residue', 'Score': 88.16305384615386, 'ChEBI ID': 'CHEBI:83100', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.379, 'coverage average': 100.0, 'frequency': 0.46153846153846156}}
+true ligand smiles: 
+CC[C@H](C)[C@H]([NH3+])C([O-])=O
+Modified chemicals list: 
+{'Chemical Name': 'N(6)-[(R)-lipoyl]-L-lysine residue', 'Score': 98.17713846153846, 'ChEBI ID': 'CHEBI:83099', 'Subscore': {'query operon penalty': 0, 'distance average': 2.3846153846153846, 'identity average': 99.42676923076922, 'coverage average': 100.0, 'frequency': 1.0}, 'SMILES': '*-N[C@@H](CCCCNC(=O)CCCC[C@@H]1CCSS1)C(-*)=O', 'Tanimoto with true ligand': 0.069}
+{'Chemical Name': '3-methyl-2-oxobutanoate', 'Score': 91.06833186813189, 'ChEBI ID': 'CHEBI:11851', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.46771428571431, 'coverage average': 100.0, 'frequency': 0.5384615384615384}, 'SMILES': 'CC(C)C(=O)C([O-])=O', 'Tanimoto with true ligand': 0.296}
+{'Chemical Name': 'N(6)-[(R)-S(8)-isobutyryldihydrolipoyl]-L-lysine residue', 'Score': 91.06833186813189, 'ChEBI ID': 'CHEBI:83142', 'Subscore': {'query operon penalty': 0, 'distance average': 1.0, 'identity average': 99.46771428571431, 'coverage average': 100.0, 'frequency': 0.5384615384615384}, 'SMILES': 'CC(C)C(=O)SCC[C@H](S)CCCCC(=O)NCCCC[C@H](N-*)C(-*)=O', 'Tanimoto with true ligand': 0.095}
+{'Chemical Name': 'N(6)-[(R)-dihydrolipoyl]-L-lysine residue', 'Score': 88.16305384615386, 'ChEBI ID': 'CHEBI:83100', 'Subscore': {'query operon penalty': 0, 'distance average': 4.0, 'identity average': 99.379, 'coverage average': 100.0, 'frequency': 0.46153846153846156}, 'SMILES': 'SCC[C@H](S)CCCCC(=O)NCCCC[C@H](N-*)C(-*)=O', 'Tanimoto with true ligand': 0.077}
