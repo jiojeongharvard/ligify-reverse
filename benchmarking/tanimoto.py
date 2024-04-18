@@ -21,6 +21,7 @@ def tanimoto_calc(smi1, smi2):
     except:
         return 0
 
+# try newer scorings
 def tanimoto_calc_new(smi1, smi2):
     try:
         mol1 = Chem.MolFromSmiles(smi1)

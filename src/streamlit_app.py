@@ -147,14 +147,19 @@ with st.sidebar:
     st.divider()
     
     st.write("Chemical Scoring")
+    
+    st.markdown("<p style='font-size: 10px'>The ligands excluded from ranking are the following: 1, 5-dihydroflavin, acetyl-CoA(4-), acyl-CoA(4-), ADP(3-), aldehyde, ammonium, AMP(2-), AMP 3-end(1-) residue, ATP(4-), carbon dioxide, carboxylic acid anion, coenzyme A(4-), copper(1+), copper(2+), dioxygen, diphosphate(3-), DNA 5-phosphate polyanion, FAD(3-), FADH(2)(2-), flavin(1-), FMN(3-), FMNH(2)(2-), GDP(3-), GMP(2-), GTP(4-), hydrogen acceptor, hydrogen donor, hydrogen peroxide, hydrogenphosphate, H group, hydron, iron(2+), iron(3+), lipid II(3-), NAD(1-), NADH(2-), NADP(3-), NADPH(4-), potassium(1+), sodium(1+), superoxide, thiol group, water</p>", unsafe_allow_html=True)
+      
+    
     chemical_score_cutoff = st.slider("Score Cutoff", min_value=0, max_value=100, value=50, key='chemical_score_cutoff')
     
     distance_weight = st.slider("Weight: Distance From Regulator in Operon", min_value=0, max_value=50, value=5, key='distance_weight')
     identity_weight = st.slider("Weight: Identity (%)", min_value=0, max_value=50, value=11, key='identity_weight')
     coverage_weight = st.slider("Weight: Coverage (%)", min_value=0, max_value=50, value=20, key='coverage_weight')
-    num_occurrence_weight = st.slider("Weight: Number of Appearances", min_value=0, max_value=500, value=170, key='num_occurrence_weight')
-    query_operon_max_penalty = st.slider("Penalty for Missing in Query Protein's Operon", min_value=0, max_value=500, value=250, key='query_operon_max_penalty')
- 
+    num_occurrence_weight = st.slider("Weight: Number of Appearances", min_value=0, max_value=50, value=17, key='num_occurrence_weight')
+    num_occurrence_weight = num_occurrence_weight * 10
+    query_operon_max_penalty = st.slider("Penalty for Missing in Query Protein's Operon", min_value=0, max_value=50, value=25, key='query_operon_max_penalty')
+    query_operon_max_penalty = query_operon_max_penalty * 10
     
     
 
