@@ -19,7 +19,7 @@ def filterHomologs(homologs: pd.DataFrame, ident_cutoff:int , cov_cutoff: int):
     filtered_df = filtered_df[~((filtered_df['Identity'] == 100) & (filtered_df['Coverage'] == 100))]
     return filtered_df
 
-# use the acc2operon to get the operons for the input biosensor and its homologs
+# use the acc2operon functino to get the operons for the input biosensor and its homologs
 def getOperon(acc: str, homolog_df: pd.DataFrame):
     input_reg_operon = acc2operon(acc)
     
@@ -424,6 +424,7 @@ def get_ncbi_id(uniprot_id):
         print("Error: Unable to fetch data from UniProt")
         return None
 
+# get the description of the enzymes in the operon
 def get_enzyme_description(input_operon):
     all_enzymes_list = []
     if (input_operon == "EMPTY"):
@@ -435,6 +436,7 @@ def get_enzyme_description(input_operon):
             
     return all_enzymes_list
 
+# get the description of the enzymes in a dataframe of operons
 def get_enzyme_description_df(homolog_operon_df: pd.DataFrame):
     all_enzymes_list = []
     if (homolog_operon_df is None):
@@ -449,10 +451,12 @@ def get_enzyme_description_df(homolog_operon_df: pd.DataFrame):
     
     return all_enzymes_list
 
+# used for analyzing enzyme descriptions
 def list_of_phrases_to_frequencies(list_of_phrases):
     phrase_counts = Counter(list_of_phrases)
     sorted_phrases = dict(sorted(phrase_counts.items(), key=lambda item: item[1], reverse=True))
     return sorted_phrases
+
 
 def list_of_phrases_to_word_to_frequencies(list_of_phrases):
     list_of_words = [word for phrase in list_of_phrases for word in phrase.split()]
@@ -460,7 +464,7 @@ def list_of_phrases_to_word_to_frequencies(list_of_phrases):
     sorted_words = dict(sorted(word_counts.items(), key=lambda item: item[1], reverse=True))
     return sorted_words
 
-    
+# log function to look at all the relevant data    
 def log_function(query, excel_dict):
     print("Running for " + query)
     start_time = datetime.datetime.now()
