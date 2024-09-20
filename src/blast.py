@@ -16,7 +16,7 @@ from Bio.Blast.Applications import NcbiblastpCommandline
 #1) using diamond w/ database (only transcription factors) could be missing some info 2) blast of all known proteins remote-blast (5 mins)
 # regulators with unknown ligands and test out in lab
 
-    # Input protein accession ID, output sequence in fasta format
+# Input protein accession ID, output sequence in fasta format
 def accID2sequence(accID: str):
     URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi/?db=protein&id="+accID+"&rettype=fasta"
     response = requests.get(URL)
@@ -57,7 +57,7 @@ def blast(acc, input_method, params, max_seqs):
         return pd.DataFrame()
         
     flags = 'sseqid pident qcovhsp'
-        # Must set this memory limit for running on a 1GB EC2 instance
+    # Must set this memory limit for running on a 1GB EC2 instance
     memory_limit = 0.15
   
     query = NamedTemporaryFile()
@@ -68,7 +68,7 @@ def blast(acc, input_method, params, max_seqs):
         show = file_handle.readlines()
     
     # Select database to blast
-    diamond_db = "/Users/jiojeong/Desktop/bHTH_RefSeq.dmnd"
+    diamond_db = "/Users/jiojeong/Documents/ligify-reverse-1/bHTH_RefSeq.dmnd"
     
     subprocess.call(f'diamond blastp -d {diamond_db} -q {query.name} -o {tmp.name} --outfmt 6 {flags} -b {memory_limit}'
                     f' --id {params["ident_cutoff"]} --query-cover {params["cov_cutoff"]} --max-target-seqs {max_seqs} >> {log.name} 2>&1' , shell=True)
@@ -90,9 +90,6 @@ def blast(acc, input_method, params, max_seqs):
     inDf.rename(columns= {'sseqid': 'Uniprot Id'}, inplace=True)
     inDf.rename(columns= {'pident': 'Identity'}, inplace=True)
     inDf.rename(columns= {'qcovhsp': 'Coverage'}, inplace=True)
-
-
-    
 
     return inDf
 

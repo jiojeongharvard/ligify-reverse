@@ -10,6 +10,7 @@ sys.path.append(str(Path(__file__).parent.parent / "src"))
 
 from chemical import get_smiles_from_chebi
 
+# compute tanimoto similarity between two SMILES strings
 def tanimoto_calc(smi1, smi2):
     try:
         mol1 = Chem.MolFromSmiles(smi1)
@@ -21,7 +22,7 @@ def tanimoto_calc(smi1, smi2):
     except:
         return 0
 
-# try newer scorings
+# another way to calculate tanimoto similarity, some functions in above function are deprecated
 def tanimoto_calc_new(smi1, smi2):
     try:
         mol1 = Chem.MolFromSmiles(smi1)
@@ -34,7 +35,7 @@ def tanimoto_calc_new(smi1, smi2):
     except:
         return 0
 
-
+# get chemicals from log files
 def getChemicalsFromLogFile(acc):
     folder_path = '/Users/jiojeong/Documents/ligify-reverse-1/benchmarking/log_files/log remote blast/tanimoto/'
     log_file_path = folder_path + str(acc) + ".log"
@@ -58,6 +59,7 @@ def getChemicalsFromLogFile(acc):
     
     return chemicals
 
+# add SMILES field to an input dictionary
 def add_smiles_to_dict(chem_list):
     for chemical in chem_list:
         if (type(chemical) is list):
@@ -68,7 +70,7 @@ def add_smiles_to_dict(chem_list):
             chemical['SMILES'] = smiles
     return chem_list
         
-
+#generate a list of chemicals with tanimoto similarity to the true ligand
 def tanimoto_log(true_ligand_smiles, chem_list):
     if (chem_list == []):
         return []
@@ -117,7 +119,7 @@ if __name__ == "__main__":
     ]
     
 
-    # Print the dictionary to verify
+    # Run the tanimoto similarity calculation for each query and generate log file
     for acc in queries:
         if (acc == "nan"):
             continue

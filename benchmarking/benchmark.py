@@ -15,10 +15,10 @@ if __name__ == "__main__":
     all_queries = ["NP_414606.1", "WP_004925500.1", "WP_011336736.1", "NP_414847.3", "NP_418026.1", "NP_415533.1", "WP_011014162.1", "NP_862536.1", "NP_418342.2", "WP_012368846.1", "WP_010974118.1", "NP_418209.1", "NP_414879.3", "WP_000174305.1", "NP_391277.1", "AAC37157.1", "BAE47075.1", "NP_746731.1", "WP_002965779.1", "WP_009968057.1", "WP_011594778.1", "NP_745052.1", "WP_003227022.1", "WP_010813722.1", "WP_001278727.1", "NP_415039.1", "WP_010811303.1", "WP_003114242.1", "WP_013056567.1", "NP_414655.1", "WP_011731512.1"]
     
     #queries that work in ligify + have no homolog hits
-    no_homolog = ["NP_414606.1", "NP_414655.1", "NP_414879.3", "NP_415039.1", "NP_415533.1", "NP_418026.1", "NP_418209.1", "WP_000174305.1", "WP_001278727.1", "WP_002965779.1", "WP_003114242.1", "WP_013056567.1"]
+    no_homologs = ["NP_414606.1", "NP_414655.1", "NP_414879.3", "NP_415039.1", "NP_415533.1", "NP_418026.1", "NP_418209.1", "WP_000174305.1", "WP_001278727.1", "WP_002965779.1", "WP_003114242.1", "WP_013056567.1"]
     
     #queries that work in ligify + have at least a few homolog hits
-    queries = [elem for elem in all_queries if elem not in no_homolog]
+    yes_homologs = [elem for elem in all_queries if elem not in no_homologs]
     
     # these are all the queries that don't work with ligify
     failure_mode_queries = [
@@ -45,11 +45,12 @@ if __name__ == "__main__":
     # Assuming column headers are present and you want to use columns A and D
     # If your columns don't have headers, you can specify them using 'header=None' parameter in read_excel() and provide 'names' parameter to assign column names.
 
-    # Create the dictionary
+    # Create the dictionary of correct biosensor-chemical pairs
     excel_dict = dict(zip(df['Biosensor RefSeq'], df['Chemical name']))
 
     # Print the dictionary to verify
     print(excel_dict)
     
+    # Run the log function for each query
     for query in queries:
         log_function(query, excel_dict)
