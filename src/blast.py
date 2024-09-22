@@ -188,7 +188,6 @@ def blast_remote(acc: str, input_method, params, num_aligns):
 #     return df_filtered
 
 
- 
 if __name__ == "__main__":
         
     # Example usage
