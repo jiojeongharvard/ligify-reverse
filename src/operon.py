@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 import re
 import datetime
 from collections import Counter
+from libchebipy import ChebiEntity
 
 # filter out the dataframe of homologs based on given cutoffs
 def filterHomologs(homologs: pd.DataFrame, ident_cutoff:int , cov_cutoff: int):
@@ -147,27 +148,8 @@ def getChemicalsFromAcc(acc):
     
 # convert chebi id to the chemical name
 def chebi_id_to_name(chebi_id):
-    url = f"https://www.ebi.ac.uk/chebi/searchId.do?chebiId={chebi_id}"
-    # Send an HTTP request to the URL
-    response = requests.get(url)
-
-    # Extract the HTML content
-    html_content = response.text
-
-    # Define a regular expression pattern to match the ChEBI Name within the <title> tag
-    pattern = r'<title>\s*(.*?)\s*\(\s*CHEBI:\d+\s*\)\s*</title>'
-
-    # Search for the pattern in the HTML content
-    match = re.search(pattern, html_content)
-
-    # Check if a match is found
-    if match:
-        # Extract the ChEBI Name
-        chebi_name = match.group(1).strip()
-        return chebi_name
-    else:
-        print("ChEBI Name not found.")
-        return None
+    name = ChebiEntity(chebi_id).get_name()
+    return name
     
     
 # iterate through the proteins in the operon to look for chemicals in the reaction database. 
@@ -344,48 +326,25 @@ def rankChemicals(all_chemicals, chemicals_in_input_reg_operon, cutoff, enz_w_li
             
       
 def convert_uniprot_to_embl(uniprot_id):
-    base_url = "https://www.uniprot.org/uniprot/"
-    url = base_url + uniprot_id + ".xml"
+    url = "https://rest.uniprot.org/uniprotkb/search?query="+uniprot_id+"&format=json"
     response = requests.get(url)
-    if response.status_code == 200:
-        # Parse XML response to get RefSeq ID
-        # xml_data = response.text
-        # print(xml_data)
-        # root = ET.fromstring(xml_data)
-        
-        # embl_id = None
-        # for dbReference in root.findall(".//{http://uniprot.org/uniprot}dbReference"):
-        #     if dbReference.attrib['type'] == 'EMBL':
-        #         embl_id = dbReference.attrib['id']
-        #         break
-        # return embl_id
-        
-        # Parse XML
-        xml_data = response.text
-        root = ET.fromstring(xml_data)
-
-        # Define the namespace
-        ns = {'uni': 'http://uniprot.org/uniprot'}
-
-        # Find the dbReference element with type="EMBL"
-        embl_element = root.find(".//uni:dbReference[@type='EMBL']", ns)
-
-        # Extract the value of the property element where type="protein sequence ID"
-        if embl_element is not None:
-            protein_sequence_id = embl_element.find("./uni:property[@type='protein sequence ID']", ns)
-            if protein_sequence_id is not None:
-                embl_id = protein_sequence_id.attrib.get('value')
-                # print("EMBL ID:", embl_id)
-                return embl_id
-            else:
-                print("Protein sequence ID not found.")
-        else:
-            print("EMBL element not found.")
-
+    print(response.text)
+    if response.ok:
+        if (json.loads(response.text)["results"] == []):
+            print("FATAL: Bad uniprot API request "+ str(response.status_code))
+            st.error("EMBL id cannot be found in UniprotKB")
+            return ""
+        data = json.loads(response.text)["results"][0]
+        refseq_id = None
+        for dbReference in data.get('uniProtKBCrossReferences', []):
+            if dbReference['database'] == 'EMBL':
+                refseq_id = dbReference['id']
+                break
+        return refseq_id
     else:
-        print("Error: Unable to fetch data from UniProt")
-        return None
-
+        print("FATAL: Bad uniprot API request "+ str(response.status_code))
+        st.error("EMBL id cannot be found in UniprotKB")
+        return ""
 
 # converting from refseq -> uniprot id
 def get_uniprot_id(refseq_accession):
@@ -407,22 +366,25 @@ def get_uniprot_id(refseq_accession):
     
 # converting from uniprot id -> ncbi id
 def get_ncbi_id(uniprot_id):
-    base_url = "https://www.uniprot.org/uniprot/"
-    url = base_url + uniprot_id + ".xml"
+    url = "https://rest.uniprot.org/uniprotkb/search?query="+uniprot_id+"&format=json"
     response = requests.get(url)
-    if response.status_code == 200:
-        # Parse XML response to get RefSeq ID
-        xml_data = response.text
-        root = ET.fromstring(xml_data)
+    print(response.text)
+    if response.ok:
+        if (json.loads(response.text)["results"] == []):
+            print("FATAL: Bad uniprot API request "+ str(response.status_code))
+            st.error("RefSeq cannot be found in UniprotKB")
+            return ""
+        data = json.loads(response.text)["results"][0]
         refseq_id = None
-        for dbReference in root.findall(".//{http://uniprot.org/uniprot}dbReference"):
-            if dbReference.attrib['type'] == 'RefSeq':
-                refseq_id = dbReference.attrib['id']
+        for dbReference in data.get('uniProtKBCrossReferences', []):
+            if dbReference['database'] == 'RefSeq':
+                refseq_id = dbReference['id']
                 break
         return refseq_id
     else:
-        print("Error: Unable to fetch data from UniProt")
-        return None
+        print("FATAL: Bad uniprot API request "+ str(response.status_code))
+        st.error("RefSeq cannot be found in UniprotKB")
+        return ""
 
 # get the description of the enzymes in the operon
 def get_enzyme_description(input_operon):

@@ -7,3 +7,4 @@ biopython==1.78
 blast==2.15.0
 xmltodict==0.13.0
 diamond==2.1.9
+libchebipy==1.0.10
